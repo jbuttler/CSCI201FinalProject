@@ -22,5 +22,6 @@ CREATE TABLE Offerings (
   location varchar(120) NOT NULL,
   startTime bigint NOT NULL,
   endTime bigint NOT NULL,
+  valid bool NOT NULL,
   rating int(1) NOT NULL
 );
