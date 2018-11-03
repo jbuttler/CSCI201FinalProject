@@ -9,8 +9,9 @@ public class Offering {
 	private long endTime;
 	private double rating;
 	private String cuisineType;
+	private String location;
 	
-	public Offering(String name, String description, double price, long startTime, long endTime, double rating, String cuisineType) {
+	public Offering(String name, String description, double price, long startTime, long endTime, double rating, String cuisineType, String location) {
 		this.name = name;
 		this.description = description;
 		this.price = price;
@@ -84,5 +85,11 @@ public class Offering {
 		this.cuisineType = cuisineType;
 	}
 	
+	public String getLocation() {
+		return location;
+	}
 	
+	public void setLocation(String location) {
+		this.location = location;
+	}
 }

@@ -1,6 +1,8 @@
 package driver;
 import java.sql.*;
+import java.util.ArrayList;
 
+import datatypes.Offering;
 import datatypes.User;
 
 public class JDBCDriver {
@@ -69,6 +71,84 @@ public class JDBCDriver {
 		}
 		
 		return retval;
+	}
+	
+	public static void addOffering(String email, String cuisineType, String name, String description, 
+			String price, String location, String startTime, String endTime){
+		try {
+			ps = conn.prepareStatement("INSERT INTO Offerings(email, cuisineType, name, descripton, "
+					+ "price, location, startTime, endTime, valid, rating) VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
+			ps.setString(1, email);
+			ps.setString(2, cuisineType);
+			ps.setString(3, name);
+			ps.setString(4, description);
+			ps.setString(5, price);
+			ps.setString(6, location);
+			ps.setString(7, startTime);
+			ps.setString(8, endTime);
+			ps.executeUpdate();
+	
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+	}
+	
+	public static ArrayList<Offering> getAllOfferings(){
+		ArrayList<Offering> offerings = new ArrayList<Offering>();
+		
+		try {
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE vaild=true");
+			rs = ps.executeQuery();	
+			
+			while(rs.next()) {
+				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+						rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
+				offerings.add(offering);
+			}
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+		return offerings;
+	}
+	
+	public static ArrayList<Offering> getOfferingsByUser(String email){
+		ArrayList<Offering> offerings = new ArrayList<Offering>();
+		
+		try {
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE email=? AND valid=true");
+			ps.setString(1, email);
+			rs = ps.executeQuery();	
+			
+			while(rs.next()) {
+				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+						rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
+				offerings.add(offering);
+			}
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+		return offerings;
+	}
+	
+	public static void removeOffering(String eventID){
+		try {
+			ps = conn.prepareStatement("UPDATE Offerings SET valid=false WHERE eventID=?");
+			ps.setString(1, eventID);
+			ps.executeUpdate();
+		
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
 	}
 	
 }
