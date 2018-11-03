@@ -1,6 +1,7 @@
 package datatypes;
 
 public class Offering {
+	private int id;
 	private String name;
 	private String description;
 	private double price;
@@ -17,6 +18,14 @@ public class Offering {
 		this.endTime = endTime;
 		this.rating = rating;
 		this.cuisineType = cuisineType;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
