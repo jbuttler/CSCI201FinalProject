@@ -44,4 +44,31 @@ public class JDBCDriver {
 		}
 	}
 	
+	static User getUser(String email){
+		User retval = null;
+		connect();
+		try {
+			ps = conn.prepareStatement("SELECT name, imageURL, bio, contactinfo FROM Users WHERE email=?;");
+			ps.setString(1, email);	
+			rs = ps.executeQuery();
+			System.out.println(rs);
+			rs.next();
+			String name = rs.getString("name");
+			String imageURL = rs.getString("imageURL");
+			String bio = rs.getString("bio");
+			double rating = rs.getDouble("rating");
+			String contactinfo = rs.getString("contactinfo");
+			retval = new User(name, imageURL, email, bio, rating, contactinfo);
+			close();
+			retval.setOfferings(getOfferingsByUser(email));
+		} catch (SQLException e) {
+			System.out.println("SQLException in function \"getUser\"");
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		
+		return retval;
+	}
+	
 }

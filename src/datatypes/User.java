@@ -1,5 +1,7 @@
 package datatypes;
 
+import java.util.ArrayList;
+
 public class User {
 	private String name;
 	private String imageUrl;
@@ -7,17 +9,15 @@ public class User {
 	private String bio;
 	private double rating;
 	private String contactInfo;
-	private String location;
+	private ArrayList<Offering> offerings;
 	
-	public User(String name, String imageUrl, String email, String bio, double rating, String contactInfo,
-			String location) {
+	public User(String name, String imageUrl, String email, String bio, double rating, String contactInfo) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.email = email;
 		this.bio = bio;
 		this.rating = rating;
 		this.contactInfo = contactInfo;
-		this.location = location;
 	}
 
 	public String getName() {
@@ -68,13 +68,12 @@ public class User {
 		this.contactInfo = contactInfo;
 	}
 
-	public String getLocation() {
-		return location;
+	public ArrayList<Offering> getOfferings() {
+		return offerings;
 	}
 
-	public void setLocation(String location) {
-		this.location = location;
+	public void setOfferings(ArrayList<Offering> offerings) {
+		this.offerings = offerings;
 	}
-	
 	
 }
