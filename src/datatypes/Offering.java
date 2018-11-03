@@ -4,6 +4,7 @@ public class Offering {
 	private int id;
 	private String name;
 	private String description;
+	private String imageUrl;
 	private double price;
 	private long startTime;
 	private long endTime;
@@ -11,9 +12,10 @@ public class Offering {
 	private String cuisineType;
 	private String location;
 	
-	public Offering(String name, String description, double price, long startTime, long endTime, double rating, String cuisineType, String location) {
+	public Offering(String name, String description, String imageUrl, double price, long startTime, long endTime, double rating, String cuisineType, String location) {
 		this.name = name;
 		this.description = description;
+		this.imageUrl = imageUrl;
 		this.price = price;
 		this.startTime = startTime;
 		this.endTime = endTime;
@@ -43,6 +45,14 @@ public class Offering {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public double getPrice() {
