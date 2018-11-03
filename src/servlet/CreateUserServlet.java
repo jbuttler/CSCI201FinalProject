@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import datatypes.User;
+import driver.JDBCDriver;
 
 @WebServlet("/CreateUserServlet")
 public class CreateUserServlet extends HttpServlet {
@@ -23,7 +24,7 @@ public class CreateUserServlet extends HttpServlet {
 		String imageUrl = request.getParameter("imageUrl");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		User currentUser = new User(name, imageUrl, email, "", 0.0, "", "");
+		User currentUser = new User(name, imageUrl, email, "", 0.0, "");
 		JDBCDriver.addUser(currentUser);
 		HttpSession session = request.getSession();
 		session.setAttribute("currentUser", currentUser);
