@@ -46,7 +46,7 @@ public class JDBCDriver {
 		}
 	}
 	
-	static User getUser(String email){
+	public static User getUser(String email){
 		User retval = null;
 		connect();
 		try {
@@ -73,8 +73,28 @@ public class JDBCDriver {
 		return retval;
 	}
 	
+	public static void addUser(User user){
+		connect();
+		try {
+			ps = conn.prepareStatement("INSERT INTO Users(email, name, imageURL, bio, contactinfo) "
+					+ "VALUES(?, ?, ?, ?, ?)");
+			ps.setString(1, user.getEmail());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getImageUrl());
+			ps.setString(4, user.getBio());
+			ps.setString(5, user.getContactInfo());
+			ps.executeUpdate();
+	
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+	}
+	
 	public static void addOffering(String email, String cuisineType, String name, String description, 
 			String price, String location, String startTime, String endTime){
+		connect();
 		try {
 			ps = conn.prepareStatement("INSERT INTO Offerings(email, cuisineType, name, descripton, "
 					+ "price, location, startTime, endTime, valid, rating) VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
@@ -97,7 +117,7 @@ public class JDBCDriver {
 	
 	public static ArrayList<Offering> getAllOfferings(){
 		ArrayList<Offering> offerings = new ArrayList<Offering>();
-		
+		connect();
 		try {
 			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE vaild=true");
 			rs = ps.executeQuery();	
@@ -118,7 +138,7 @@ public class JDBCDriver {
 	
 	public static ArrayList<Offering> getOfferingsByUser(String email){
 		ArrayList<Offering> offerings = new ArrayList<Offering>();
-		
+		connect();
 		try {
 			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE email=? AND valid=true");
 			ps.setString(1, email);
@@ -139,6 +159,7 @@ public class JDBCDriver {
 	}
 	
 	public static void removeOffering(String eventID){
+		connect();
 		try {
 			ps = conn.prepareStatement("UPDATE Offerings SET valid=false WHERE eventID=?");
 			ps.setString(1, eventID);
