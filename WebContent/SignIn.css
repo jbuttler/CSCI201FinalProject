@@ -24,7 +24,6 @@ body {
 
 .button{
 	position: relative;
-	left: 520px;
 	bottom: 100px;
 	vertical-align: middle;
 }
@@ -32,10 +31,9 @@ h1 {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 70px;
 
-  color: red;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-fill-color: #FF6666; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #FA8072;
+  -webkit-text-stroke-color: #FF6666;
   
   vertical-align: middle;
   
@@ -74,8 +72,8 @@ h1 {
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
   padding: 0;
-  top: 100px;
-  right: 420px;
+  top: 70px;
+  left: 120px;
   vertical-align: middle;
   
 }

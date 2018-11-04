@@ -124,7 +124,7 @@ public class JDBCDriver {
 			
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
-						rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						null, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
 				offerings.add(offering);
 			}
@@ -146,7 +146,7 @@ public class JDBCDriver {
 			
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
-						rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						email, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
 				offerings.add(offering);
 			}
