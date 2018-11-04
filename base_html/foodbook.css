@@ -2,9 +2,6 @@ body {
     margin: 0;
     font-family: 'Nunito', Arial, sans-serif;
 }
-.clearfloat {
-    float: none;
-}
 #nav-bar {
     height: 50px;
     background-color: crimson;
