@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: 'Nunito', Arial, sans-serif;
+}
+.clearfloat {
+    float: none;
+}
+#nav-bar {
+    height: 50px;
+    background-color: crimson;
+}
+#nav-bar p {
+    float: left;
+    text-align: center;
+    margin: 0;
+    height: 90%;
+    padding-top: 5px;
+}
+#nav-bar .nav-link:hover {
+    background-color: gold;
+}
+#nav-content {
+    width: 80%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#nav-content a {
+    text-decoration: none;
+    font-size: 1.9em;
+    color: black;
+}
+.nav-link {
+    width: 18%;
+}
+#nav-search {
+    width: 28%;
+}
+#nav-search input {
+    border: 0;
+    height: 70%;
+    width: 70%;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 1.3em;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-top: 2px;
+}
+#nav-search input::placeholder {
+    text-align: center;
+}
+.current-page {
+    background-color: gold;
+}
+#title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 2.3em;
+}
+#main {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
