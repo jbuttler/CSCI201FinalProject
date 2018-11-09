@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Search Results | Foodbook</title>
+    <title>Home | Foodbook</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="foodbook.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -60,13 +60,68 @@
         }
         #activity-map {
             width: 30%;
+            height: auto;
             margin-right: 10%;
             float: right;
+            position: relative;
         }
         #activity-map #map-base {
             width: 100%;
             height: auto;
             background: 1px solid black;
+            position: static;
+            visibility: visible;
+        }
+        #activity-map img {
+            width: 12.5%;
+            height: auto;
+            position: absolute;
+            visibility: hidden;
+
+        }
+        #activity-map #parkside {
+            left: 5%;
+            top: 83%;
+        }
+        #activity-map #south {
+            left: 72%;
+            top: 78%;
+        }
+        #activity-map #newnorth {
+            left: 79%;
+            top: 62%;
+        }
+        #activity-map #birnkrant {
+            left: 74%;
+            top: 60%;
+        }
+        #activity-map #west {
+            left: 25%;
+            top: 25%;
+        }
+        #activity-map #mccarthy {
+            left: 47%;
+            top: 18%;
+        }
+        #activity-map #cale {
+            left: 45%;
+            top: 25%;
+        }
+        #activity-map #cowlings {
+            left: 53%;
+            top: 15%;
+        }
+        #activity-map #priam {
+            left: 54%;
+            top: 29%;
+        }
+        #activity-map #cargar {
+            left: 30%;
+            top: 13%;
+        }
+        #activity-map #century {
+            left: 13%;
+            top: 15%;
         }
         .clearfloat {
             clear: both;
@@ -142,9 +197,20 @@
         
     </div>
 
+    <h2>Activity Map</h2>
     <div id="activity-map">
-        <h2>Activity Map</h2>
         <img id="map-base" src="img/map_base.jpg" alt="Activity Map">
+        <img id="parkside" src="img/marker.png" alt="">
+        <img id="south" src="img/marker.png" alt="">
+        <img id="newnorth" src="img/marker.png" alt="">
+        <img id="birnkrant" src="img/marker.png" alt="">
+        <img id="west" src="img/marker.png" alt="">
+        <img id="mccarthy" src="img/marker.png" alt="">
+        <img id="cale" src="img/marker.png" alt="">
+        <img id="cowlings" src="img/marker.png" alt="">
+        <img id="priam" src="img/marker.png" alt="">
+        <img id="cargar" src="img/marker.png" alt="">
+        <img id="century" src="img/marker.png" alt="">
     </div>
 
 </body>
