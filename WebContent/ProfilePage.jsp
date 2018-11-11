@@ -232,8 +232,6 @@
   					<br>
   					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
   					<br>
-  					<input type="text" name="price" placeholder="Ex. 10.00" required>
-  					<br>
   					<br>
   					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
 			</form> 
