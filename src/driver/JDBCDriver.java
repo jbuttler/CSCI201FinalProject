@@ -76,7 +76,7 @@ public class JDBCDriver {
 	public static void addUser(User user){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Users(email, name, imgURL, bio, contactinfo) "
+			ps = conn.prepareStatement("INSERT IGNORE INTO Users(email, name, imgURL, bio, contactinfo) "
 					+ "VALUES(?, ?, ?, ?, ?)");
 			ps.setString(1, user.getEmail());
 			ps.setString(2, user.getName());
@@ -95,8 +95,8 @@ public class JDBCDriver {
 	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Offerings(email, cuisineType, name, descripton, "
-					+ "price, location, startTime, endTime, valid, rating) VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
+			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, description, price, location, startTime, endTime, valid, rating) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
 			ps.setString(1, email);
 			ps.setString(2, offering.getCuisineType());
 			ps.setString(3, offering.getName());
@@ -104,9 +104,19 @@ public class JDBCDriver {
 			ps.setDouble(5, offering.getPrice());
 			ps.setString(6, offering.getLocation());
 			ps.setLong(7, offering.getStartTime());
-			ps.setLong(8, offering.getEndTime());
+			ps.setLong(8,  offering.getEndTime());
 			ps.executeUpdate();
-	
+			
+			ps = conn.prepareStatement("SELECT LAST_INSERT_ID()");
+			rs = ps.executeQuery();
+			int id = -1;
+			if(rs.next()) {
+				
+			}
+			System.out.println("Recieved ID of: " + id);
+			
+			offering.setId(id);
+			
 		} catch (SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		} finally {

@@ -13,7 +13,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commonslogging1.1.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/google-api-client-1.25.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/google-api-client-servlet-1.25.0.jar"/>
@@ -29,5 +28,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/httpcore4.0.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsr305-3.0.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/transaction-api-1.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.46.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
