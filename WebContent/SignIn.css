@@ -13,19 +13,28 @@ body {
 	float: right;
 	height: 100%;
 	padding: 50px;
+
 }
 
 
 .main{
-	position: relative;
+	position: absolute;
 	top: 200px;
 	vertical-align: middle;
 }
 
+.middleElements{
+	position: relative;
+	margin: auto;
+    width: 50%;
+    bottom: 50px;
+}
+
 .button{
 	position: relative;
-	bottom: 100px;
-	vertical-align: middle;
+	margin: auto;
+    width: 50%;
+    bottom: 20px;
 }
 h1 {
   font-family: Verdana, Geneva, sans-serif;
@@ -35,7 +44,7 @@ h1 {
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #FF6666;
   
-  vertical-align: middle;
+  text-align: center;
   
 }
 
@@ -71,10 +80,9 @@ h1 {
   transition-property: background-color, box-shadow;
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
-  padding: 0;
-  top: 70px;
-  left: 120px;
-  vertical-align: middle;
+  padding: 0;  
+  margin: auto;
+  width: 50%;
   
 }
 
@@ -123,4 +131,73 @@ body {
 
 button ~ button {
   margin-left: 20px;
+}
+
+ {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  
+  
+}
+
+img{
+	width:auto;
+	height: 200px;
+	
+    
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #FF6666;
+  padding: 2px 16px;
+  color: white;
+   font-family: Verdana, Geneva, sans-serif;
+  font-size: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
 }

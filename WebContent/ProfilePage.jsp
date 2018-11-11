@@ -14,8 +14,8 @@
 	}
 
 	#ProfileImage {
-		width: 50%;
-		height: 40%;
+		width: auto;
+		height: 300px;
 	}
 
 	#ProfileInfo {
@@ -199,13 +199,17 @@
     <div id="AddFood">
     	<h1 id="CenterText"> Add Offering</h1>
     	<div id="CenterText">
-  		 		<form id="forms" name="eventForm" method="GET" action="ProcessEvent">
- 	 				<input type="text" name="foodTitle" placeholder="Cuisine Name" required>
+  		 		<form id="forms" name="eventForm" method="GET" action="OfferingsServlet">
+ 	 				<input type="text" name="name" placeholder="Cuisine Name" required>
   					<br>
   					<input type="text" name="location" placeholder="Location" required>
   					<br>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
   					<br>
+  					<input type="text" name="price" placeholder="Price" required>
+  					<br>
+  					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>
+  					<br> 					
   					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
   					<br>
   					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
