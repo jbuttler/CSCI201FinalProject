@@ -92,20 +92,19 @@ public class JDBCDriver {
 		}
 	}
 	
-	public static void addOffering(String email, String cuisineType, String name, String description, 
-			String price, String location, String startTime, String endTime){
+	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
 			ps = conn.prepareStatement("INSERT INTO Offerings(email, cuisineType, name, descripton, "
 					+ "price, location, startTime, endTime, valid, rating) VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
 			ps.setString(1, email);
-			ps.setString(2, cuisineType);
-			ps.setString(3, name);
-			ps.setString(4, description);
-			ps.setString(5, price);
-			ps.setString(6, location);
-			ps.setString(7, startTime);
-			ps.setString(8, endTime);
+			ps.setString(2, offering.getCuisineType());
+			ps.setString(3, offering.getName());
+			ps.setString(4, offering.getDescription());
+			ps.setDouble(5, offering.getPrice());
+			ps.setString(6, offering.getLocation());
+			ps.setLong(7, offering.getStartTime());
+			ps.setLong(8, offering.getEndTime());
 			ps.executeUpdate();
 	
 		} catch (SQLException sqle) {

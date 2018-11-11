@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import datatypes.Offering;
+import datatypes.User;
 import driver.JDBCDriver;
 
 /**
@@ -40,7 +41,7 @@ public class OfferingsServlet extends HttpServlet {
 				Double.parseDouble((String)request.getParameter("rating")),
 				(String)request.getParameter("cuisineType"),
 				(String)request.getParameter("location"));
-		// JdbcDriver.addOffering(offering);
+		JDBCDriver.addOffering(offering, ((User)request.getSession().getAttribute("email")).getEmail());
 	}
 
 }
