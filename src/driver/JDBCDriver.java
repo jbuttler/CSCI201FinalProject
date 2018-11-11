@@ -13,7 +13,7 @@ public class JDBCDriver {
 	
 	public static boolean connect(){
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook_db?user=root&password=root&useSSL=false");
 			return true;
 		} catch (ClassNotFoundException e) {
