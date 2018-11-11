@@ -171,8 +171,8 @@
     
     <div id="ProfileBox">
        <div id="ProfileBasic">
-       		<h1 id="CenterText"> Tommy Trojan </h1>
-       		<img id="ProfileImage" src="https://media.gettyimages.com/photos/trojans-mascot-tommy-trojan-poses-during-a-firstround-game-of-the-picture-id478273599?s=612x612"/>
+       		<h1 id="CenterText"> ${name} </h1>
+       		<img id="ProfileImage" src="${imgUrl}"/>
        </div>
        <div id="ProfileInfo">
        <br>
