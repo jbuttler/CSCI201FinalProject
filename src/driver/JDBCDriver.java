@@ -107,11 +107,11 @@ public class JDBCDriver {
 			ps.setLong(8,  offering.getEndTime());
 			ps.executeUpdate();
 			
-			ps = conn.prepareStatement("SELECT LAST_INSERT_ID()");
+			ps = conn.prepareStatement("SELECT MAX(offeringID) FROM foodbook.offerings;");
 			rs = ps.executeQuery();
 			int id = -1;
 			if(rs.next()) {
-				
+				id = rs.getInt("MAX(offeringID)");
 			}
 			System.out.println("Recieved ID of: " + id);
 			
