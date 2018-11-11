@@ -14,7 +14,7 @@ public class JDBCDriver {
 	public static boolean connect(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook_db?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook?user=root&password=root&useSSL=false");
 			return true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -76,7 +76,7 @@ public class JDBCDriver {
 	public static void addUser(User user){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Users(email, name, imageURL, bio, contactinfo) "
+			ps = conn.prepareStatement("INSERT INTO Users(email, name, imgURL, bio, contactinfo) "
 					+ "VALUES(?, ?, ?, ?, ?)");
 			ps.setString(1, user.getEmail());
 			ps.setString(2, user.getName());

@@ -84,7 +84,7 @@
       <img class="demo cursor" src="https://www.theforkbite.com/wp-content/uploads/2018/02/Pad-See-Ew-thumb.jpg" style="width:100%" onclick="currentSlide(3)" alt="Pad See Ew">
     </div>
     <div class="column">
-      <img class="demo cursor" src="http://www.chineserecipesforall.com/images/uploads/recipes/instant-ramen-noodles-no-without-MSG-powder-recipe-RecipeMain-Chinese-Recipes-For-All.jpg" style="width:100%" onclick="currentSlide(4)" alt="Second Floor Instant Noodles">
+      <img class="demo cursor" src="https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/fc/3061758-poster-p-1-add-instant-ramen-to-the-list-of-foods-that-can-kill-you.jpg" style="width:100%" onclick="currentSlide(4)" alt="Second Floor Instant Noodles">
     </div>
     <div class="column">
       <img class="demo cursor" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Culinary_fruits_front_view.jpg" style="width:100%" onclick="currentSlide(5)" alt="Dining Hall Fruits">
