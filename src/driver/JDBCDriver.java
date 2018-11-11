@@ -73,6 +73,31 @@ public class JDBCDriver {
 		return retval;
 	}
 	
+	public static ArrayList<User> getAllUsers(){
+		ArrayList<User> users = new ArrayList<User>();
+		connect();
+		try {
+			ps = conn.prepareStatement("SELECT * FROM Users");
+			rs = ps.executeQuery();	
+			
+			while(rs.next()) {
+				User user = new User(
+						rs.getString("name"), 
+						rs.getString("imgURL"), 
+						rs.getString("email"), 
+						rs.getString("bio"), 
+						rs.getDouble("rating"), 
+						rs.getString("contactinfo"));
+				users.add(user);
+			}
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+		return users;
+	}
+	
 	public static void addUser(User user){
 		connect();
 		try {
