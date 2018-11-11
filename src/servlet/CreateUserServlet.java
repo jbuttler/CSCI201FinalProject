@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import background.RatingThread;
+import background.DeleteInvalidOfferingsThread;
 import datatypes.User;
 import driver.JDBCDriver;
 
@@ -18,8 +18,8 @@ public class CreateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     public CreateUserServlet() {
-        Thread ratingsThread = new RatingThread();
-        ratingsThread.start();
+        Thread deleteInvalidThread = new DeleteInvalidOfferingsThread();
+        deleteInvalidThread.start();
     }
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
