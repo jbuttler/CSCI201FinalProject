@@ -21,6 +21,7 @@ public class Offering {
 		this.endTime = endTime;
 		this.rating = rating;
 		this.cuisineType = cuisineType;
+		this.location = location;
 	}
 	
 	public int getId() {

@@ -156,24 +156,6 @@
         }
 	
     </style>
-    <script>
-    	var socket;
-   		function connectToServer() {
-			socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/ws");
-   		}
-	    function sendOffering() {
-	    	var form = document.getElementById("forms");
-	    	var offeringObject = {
-	    			"imageUrl" : form.imageUrl.value,
-	    			"name" : form.foodTitle.value,
-	    			"startTime" : form.startTime.value,
-	    			"endTime" : form.endTime.value,
-	    			"price" : form.price.value
-	    	};
-			socket.send(offeringObject.stringify());
-			return false;
-		}
-    </script>
 </head>
 <body>
 
@@ -182,7 +164,7 @@
             <a href="HomePage.jsp"><p id="nav-home" class="nav-link">Home</p></a>
             <a href="OfferingsPage.jsp"><p id="nav-offerings" class="nav-link">Offerings</p></a>
             <p id="nav-search"><input type="text" placeholder="Search Users"></p>
-            <a href="ProfilePage.jsp"><p id="nav-profile" class="nav-link current-page">Profile</p></a>
+            <a href="ProfilePage.jsp"><p id="nav-profile" class="nav-link">Profile</p></a>
             <a href="SignIn.jsp"><p id="nav-signout" class="nav-link">Sign Out</p></a>
         </div>
     </div>
@@ -215,31 +197,7 @@
     </div>
     
     <div id="AddFood">
-    	<h1 id="CenterText"> Add Offering</h1>
-    	<div id="CenterText">
-  		 		<form id="forms" name="eventForm" method="GET" action="OfferingsServlet">
- 	 				<input type="text" name="name" placeholder="Cuisine Name" required>
-  					<br>
-  					<input type="text" name="location" placeholder="Location" required>
-  					<br>
-  					<input type="text" name="imageUrl" placeholder="Image URL" required>
-  					<br>
-  					<input type="text" name="price" placeholder="Price" required>
-  					<br>
-  					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>
-  					<br> 					
-  					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
-  					<br>
-  					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
-  					<br>
-  					<input type="text" name="price" placeholder="Ex. 10.00" required>
-  					<br>
-  					<br>
-  					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
-			</form> 
-  		 	
-  		 	
-  		 </div>
+    
     </div>
     
     <h1 id="title"> My Offerings</h1>
