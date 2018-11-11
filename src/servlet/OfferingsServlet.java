@@ -38,7 +38,6 @@ public class OfferingsServlet extends HttpServlet {
 				Double.parseDouble((String)request.getParameter("price")),
 				Long.parseLong((String)request.getParameter("startTime")),
 				Long.parseLong((String)request.getParameter("endTime")),
-				0,
 				(String)request.getParameter("cuisineType"),
 				(String)request.getParameter("location"));
 		JDBCDriver.addOffering(offering, ((User)request.getSession().getAttribute("email")).getEmail());

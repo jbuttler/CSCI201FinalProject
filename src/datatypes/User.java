@@ -7,16 +7,14 @@ public class User {
 	private String imageUrl;
 	private String email;
 	private String bio;
-	private double rating;
 	private String contactInfo;
 	private ArrayList<Offering> offerings;
 	
-	public User(String name, String imageUrl, String email, String bio, double rating, String contactInfo) {
+	public User(String name, String imageUrl, String email, String bio, String contactInfo) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.email = email;
 		this.bio = bio;
-		this.rating = rating;
 		this.contactInfo = contactInfo;
 	}
 
@@ -50,14 +48,6 @@ public class User {
 
 	public void setBio(String bio) {
 		this.bio = bio;
-	}
-
-	public double getRating() {
-		return rating;
-	}
-
-	public void setRating(double rating) {
-		this.rating = rating;
 	}
 
 	public String getContactInfo() {

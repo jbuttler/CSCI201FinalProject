@@ -58,9 +58,8 @@ public class JDBCDriver {
 			String name = rs.getString("name");
 			String imageURL = rs.getString("imageURL");
 			String bio = rs.getString("bio");
-			double rating = rs.getDouble("rating");
 			String contactinfo = rs.getString("contactinfo");
-			retval = new User(name, imageURL, email, bio, rating, contactinfo);
+			retval = new User(name, imageURL, email, bio, contactinfo);
 			close();
 			retval.setOfferings(getOfferingsByUser(email));
 		} catch (SQLException e) {
@@ -86,7 +85,6 @@ public class JDBCDriver {
 						rs.getString("imgURL"), 
 						rs.getString("email"), 
 						rs.getString("bio"), 
-						rs.getDouble("rating"), 
 						rs.getString("contactinfo"));
 				users.add(user);
 			}
@@ -159,7 +157,7 @@ public class JDBCDriver {
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
 						null, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"));
 				offerings.add(offering);
 			}
 		} catch (SQLException sqle) {
@@ -181,7 +179,7 @@ public class JDBCDriver {
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
 						email, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getDouble("rating"), rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"));
 				offerings.add(offering);
 			}
 		} catch (SQLException sqle) {

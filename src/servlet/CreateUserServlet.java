@@ -26,7 +26,7 @@ public class CreateUserServlet extends HttpServlet {
 		String imageUrl = request.getParameter("imageUrl");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		User currentUser = new User(name, imageUrl, email, "", 0.0, "");
+		User currentUser = new User(name, imageUrl, email, "", "");
 		JDBCDriver.addUser(currentUser);
 		HttpSession session = request.getSession();
 		session.setAttribute("currentUser", currentUser);

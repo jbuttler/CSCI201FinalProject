@@ -8,18 +8,16 @@ public class Offering {
 	private double price;
 	private long startTime;
 	private long endTime;
-	private double rating;
 	private String cuisineType;
 	private String location;
 	
-	public Offering(String name, String description, String imageUrl, double price, long startTime, long endTime, double rating, String cuisineType, String location) {
+	public Offering(String name, String description, String imageUrl, double price, long startTime, long endTime, String cuisineType, String location) {
 		this.name = name;
 		this.description = description;
 		this.imageUrl = imageUrl;
 		this.price = price;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.rating = rating;
 		this.cuisineType = cuisineType;
 		this.location = location;
 	}
@@ -78,14 +76,6 @@ public class Offering {
 
 	public void setEndTime(long endTime) {
 		this.endTime = endTime;
-	}
-
-	public double getRating() {
-		return rating;
-	}
-
-	public void setRating(double rating) {
-		this.rating = rating;
 	}
 
 	public String getCuisineType() {
