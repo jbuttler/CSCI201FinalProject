@@ -189,8 +189,8 @@
     
     <div id="ProfileBox">
        <div id="ProfileBasic">
-       		<h1 id="CenterText"> ${name} </h1>
-       		<img id="ProfileImage" src="${imgUrl}"/>
+       		<h1 id="CenterText"> ${currentUser.getName()} </h1>
+       		<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
        </div>
        <div id="ProfileInfo">
        <br>

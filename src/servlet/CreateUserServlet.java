@@ -30,8 +30,6 @@ public class CreateUserServlet extends HttpServlet {
 		JDBCDriver.addUser(currentUser);
 		HttpSession session = request.getSession();
 		session.setAttribute("currentUser", currentUser);
-		String newPage = "ProfilePage.jsp";
-		response.sendRedirect(newPage);
 	}
 
 }

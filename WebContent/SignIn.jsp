@@ -33,7 +33,9 @@
   			</button>
 		</div>
 		<br>
-		
+		<div id="holder">
+  			<button class="niceButton" onClick="redirectPage()">To Food!</button>
+		</div>
 		
 		
 	</div>
@@ -156,6 +158,7 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
+          holder.style.display = 'block';
           
           
           
@@ -170,26 +173,8 @@
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
+          holder.style.display = 'none';
         }
-      }
-      
-      function profileButton(){
-    	  sycImage.style.display = 'none';
-    	  title.style.display = 'none';
-          signoutButton.style.display = 'none';
-          //ProfilePage.style.display = 'block';
-          listUpcomingEvents();
-          profileImage.style.display = 'block';
-          profileName.style.display = 'block';
-      }
-      
-      function calendarButton(){
-    	  sycImage.style.display = 'block';
-    	  title.style.display = 'block';
-          signoutButton.style.display = 'block';
-          //ProfilePage.style.display = 'none';
-          profileImage.style.display = 'none';
-          profileName.style.display = 'none';
       }
       
 
@@ -212,6 +197,8 @@
     		var fname = profile.getGivenName();
     		var lname = profile.getFamilyName();
     		
+    		
+    		
     		//sending authorization token
     		var id_token = googleUser.getAuthResponse().id_token;
     		var access_token = googleUser.getAuthResponse().access_token;
@@ -221,11 +208,15 @@
     		xhr.open('POST', 'CreateUserServlet');
     		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     		xhr.onload = function() {
-    		  console.log('Signed in as: ' + profile.getName());
+    		  console.log('Signed in as: ' + profile.getName());  
     		};
     		
     		xhr.send('id='+ID+'&name='+fullName+'&imageUrl='+imgURL+'&email='+email+"&fname="+fname+"&lname="+lname);
 
+      }
+      
+      function redirectPage(){
+    	  window.location.replace("ProfilePage.jsp");
       }
 
       /**
@@ -249,11 +240,6 @@
        *
        * @param {string} message Text to be placed in pre element.
        */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
-      }
 
        var slideIndex = 1;
        showSlides(slideIndex);
