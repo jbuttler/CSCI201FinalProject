@@ -15,6 +15,42 @@
     <link rel="stylesheet" href="foodbook.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <style></style>
+  	<script>
+		var socket;
+		function connectToServer() {
+			socket = new WebSocket("ws://localhost:8080/CSCI201-WebSockets/ws");
+			socket.onopen = function(event) {
+				console.log("Connected!");
+			}
+			socket.onmessage = function(event) {
+				var offering = event.data;
+				
+				var offeringDiv = document.createElement("div");
+				
+	  			var offeringImage = document.createElement("img");
+	  			offeringImage.src = offering.imageUrl;
+	 			offeringDiv.appendChild(offeringImage);
+	 			
+	 			var offeringName = document.createElement("div");
+	 			offeringName.innerHTML = offering.name;
+	 			offeringDiv.appendChild(offeringName);
+	 			
+	 			var offeringTime = document.createElement("div");
+	 			offeringTime.innerHTML = offering.startTime + ' - ' + offering.endTime;
+	 			offeringDiv.appendChild(offeringTime);
+	 			
+	 			var offeringPrice = document.createElement("div");
+	 			offeringPrice.innerHTML = offering.price;
+	 			offeringPrice.appendChild(offeringPrice);
+				
+	 			document.getElementById("main").appendChild(offeringDiv);
+	 			
+			}
+			socket.onclose = function(event) {
+				console.log("Disconnected!");
+			}
+		}
+  	</script>
 </head>
 
 <body>
@@ -32,6 +68,9 @@
     <div id="main">
     	<%
 	    	List<Offering> offerings = (ArrayList<Offering>)request.getAttribute("offerings");
+    		if(offerings == null) {
+    			offerings = new ArrayList<Offering>();
+    		}
 			for(Offering offering : offerings){
     	%>
     		<div class="offering-div">

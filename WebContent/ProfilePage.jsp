@@ -156,6 +156,24 @@
         }
 	
     </style>
+    <script>
+    	var socket;
+   		function connectToServer() {
+			socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/ws");
+   		}
+	    function sendOffering() {
+	    	var form = document.getElementById("forms");
+	    	var offeringObject = {
+	    			"imageUrl" : form.imageUrl.value,
+	    			"name" : form.foodTitle.value,
+	    			"startTime" : form.startTime.value,
+	    			"endTime" : form.endTime.value,
+	    			"price" : form.price.value
+	    	};
+			socket.send(offeringObject.stringify());
+			return false;
+		}
+    </script>
 </head>
 <body>
 
@@ -214,8 +232,10 @@
   					<br>
   					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
   					<br>
+  					<input type="text" name="price" placeholder="Ex. 10.00" required>
   					<br>
-  					<input id="submit" type="submit" value="Submit">
+  					<br>
+  					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
 			</form> 
   		 	
   		 	
