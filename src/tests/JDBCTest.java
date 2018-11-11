@@ -21,8 +21,20 @@ public class JDBCTest {
 			System.out.println(user.getName());
 		}
 		
-		Offering offering = new Offering("The best offerig", "You'll love this offering.", "goodImg.com", 6.95, 123456780, 123456789, 4, "chinese", "New North");
-		JDBCDriver.addOffering(offering, user1.getEmail());
+		Offering offering1 = new Offering("The best offering", "You'll love this offering.", "goodImg.com", 6.95, 123456780, 123456789, 4, "chinese", "New North");
+		JDBCDriver.addOffering(offering1, user1.getEmail());
+		
+		ArrayList<Offering> offerings = JDBCDriver.getAllOfferings();
+		for(Offering offering: offerings) {
+			System.out.println(offering.getName());
+		}
+		
+		JDBCDriver.removeOffering(offering1.getId());
+		
+		offerings = JDBCDriver.getAllOfferings();
+		for(Offering offering: offerings) {
+			System.out.println(offering.getName());
+		}
 		
 	}
 

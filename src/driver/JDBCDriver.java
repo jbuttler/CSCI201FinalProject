@@ -153,7 +153,7 @@ public class JDBCDriver {
 		ArrayList<Offering> offerings = new ArrayList<Offering>();
 		connect();
 		try {
-			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE vaild=true");
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE valid=true");
 			rs = ps.executeQuery();	
 			
 			while(rs.next()) {
@@ -192,11 +192,11 @@ public class JDBCDriver {
 		return offerings;
 	}
 	
-	public static void removeOffering(String eventID){
+	public static void removeOffering(int offeringID){
 		connect();
 		try {
-			ps = conn.prepareStatement("UPDATE Offerings SET valid=false WHERE eventID=?");
-			ps.setString(1, eventID);
+			ps = conn.prepareStatement("UPDATE Offerings SET valid=false WHERE offeringID=?");
+			ps.setInt(1, offeringID);
 			ps.executeUpdate();
 		
 		} catch (SQLException sqle) {
@@ -205,5 +205,5 @@ public class JDBCDriver {
 			close();
 		}
 	}
-	
+		
 }
