@@ -8,8 +8,7 @@ CREATE TABLE Users (
   name varchar(40) NOT NULL,
   imgURL varchar(200),
   bio varchar(140),
-  contactinfo varchar(50) NOT NULL,
-  rating double NOT NULL
+  contactinfo varchar(50) NOT NULL
 );
 
 CREATE TABLE Offerings (
@@ -24,5 +23,5 @@ CREATE TABLE Offerings (
   startTime bigint NOT NULL,
   endTime bigint NOT NULL,
   valid bool NOT NULL,
-  rating int(1) NOT NULL
+  imgURL varchar(200)
 );

@@ -22,6 +22,22 @@ public class Offering {
 		this.location = location;
 	}
 	
+	public boolean equals(Offering offering) {
+		boolean retval = true;
+		
+		retval &= this.getCuisineType().equals(offering.getCuisineType());
+		retval &= this.getDescription().equals(offering.getDescription());
+		retval &= this.getEndTime() == offering.getEndTime();
+		retval &= this.getId() == offering.getId();
+		retval &= this.getImageUrl().equals(offering.getImageUrl());
+		retval &= this.getLocation().equals(offering.getLocation());
+		retval &= this.getName().equals(offering.getName());
+		retval &= this.getPrice() == offering.getPrice();
+		retval &= this.getStartTime() == offering.getStartTime();		
+		
+		return retval;
+	}
+	
 	public int getId() {
 		return id;
 	}

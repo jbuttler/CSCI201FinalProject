@@ -11,10 +11,10 @@ public class JDBCDriver {
 	private static PreparedStatement ps = null;
 	
 	
-	public static boolean connect(){
+	private static boolean connect(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook?user=root&password=root&useSSL=false");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook?user=root&password=root&useSSL=false&allowPublicKeyRetrieval=true");
 			return true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -27,7 +27,7 @@ public class JDBCDriver {
 		}
 	}
 	
-	public static void close(){
+	private static void close(){
 		try{
 			if (rs!=null){
 				rs.close();
@@ -50,13 +50,12 @@ public class JDBCDriver {
 		User retval = null;
 		connect();
 		try {
-			ps = conn.prepareStatement("SELECT name, imageURL, bio, contactinfo FROM Users WHERE email=?;");
+			ps = conn.prepareStatement("SELECT name, imgURL, bio, contactinfo FROM Users WHERE email=?;");
 			ps.setString(1, email);	
 			rs = ps.executeQuery();
-			System.out.println(rs);
 			rs.next();
 			String name = rs.getString("name");
-			String imageURL = rs.getString("imageURL");
+			String imageURL = rs.getString("imgURL");
 			String bio = rs.getString("bio");
 			String contactinfo = rs.getString("contactinfo");
 			retval = new User(name, imageURL, email, bio, contactinfo);
@@ -118,8 +117,8 @@ public class JDBCDriver {
 	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, description, price, location, startTime, endTime, valid, rating) "
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, -1)");
+			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, description, price, location, startTime, endTime, valid, imgURL) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, ?)");
 			ps.setString(1, email);
 			ps.setString(2, offering.getCuisineType());
 			ps.setString(3, offering.getName());
@@ -128,6 +127,7 @@ public class JDBCDriver {
 			ps.setString(6, offering.getLocation());
 			ps.setLong(7, offering.getStartTime());
 			ps.setLong(8,  offering.getEndTime());
+			ps.setString(9, offering.getImageUrl());
 			ps.executeUpdate();
 			
 			ps = conn.prepareStatement("SELECT MAX(offeringID) FROM foodbook.offerings;");
@@ -136,7 +136,7 @@ public class JDBCDriver {
 			if(rs.next()) {
 				id = rs.getInt("MAX(offeringID)");
 			}
-			System.out.println("Recieved ID of: " + id);
+			//System.out.println("Recieved ID of: " + id);
 			
 			offering.setId(id);
 			
@@ -145,6 +145,28 @@ public class JDBCDriver {
 		} finally {
 			close();
 		}
+	}
+	
+	public static Offering getOffering(int offeringID) {
+		Offering retval = null;
+		connect();
+		try {
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE valid=true AND offeringID=?");
+			ps.setInt(1, offeringID);
+			rs = ps.executeQuery();	
+			
+			if(rs.next()) {
+				retval = new Offering(rs.getString("name"), rs.getString("description"), 
+						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getString("cuisineType"), rs.getString("location"));
+				retval.setId(rs.getInt("offeringID"));
+			}
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+		return retval;
 	}
 	
 	public static ArrayList<Offering> getAllOfferings(){
@@ -156,8 +178,9 @@ public class JDBCDriver {
 			
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
-						null, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
+				offering.setId(rs.getInt("offeringID"));
 				offerings.add(offering);
 			}
 		} catch (SQLException sqle) {
@@ -172,14 +195,38 @@ public class JDBCDriver {
 		ArrayList<Offering> offerings = new ArrayList<Offering>();
 		connect();
 		try {
-			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE email=? AND valid=true");
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE chefEmail=? AND valid=true");
 			ps.setString(1, email);
 			rs = ps.executeQuery();	
 			
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
-						email, rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
+				offering.setId(rs.getInt("offeringID"));
+				offerings.add(offering);
+			}
+		} catch (SQLException sqle) {
+			System.out.println ("SQLException: " + sqle.getMessage());
+		} finally {
+			close();
+		}
+		return offerings;
+	}
+	
+	public static ArrayList<Offering> getInvalidOfferingsByUser(String email){
+		ArrayList<Offering> offerings = new ArrayList<Offering>();
+		connect();
+		try {
+			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE chefEmail=?");
+			ps.setString(1, email);
+			rs = ps.executeQuery();	
+			
+			while(rs.next()) {
+				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
+						rs.getString("cuisineType"), rs.getString("location"));
+				offering.setId(rs.getInt("offeringID"));
 				offerings.add(offering);
 			}
 		} catch (SQLException sqle) {
