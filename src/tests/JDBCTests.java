@@ -14,8 +14,8 @@ class JDBCTests {
 
 	User user1 = new User("Tommy Trojan", "tommytrojan.com", "ttrojan@usc.edu", "The dopest trojan", "ttrojan");
 	User user2 = new User("Hecuba Trojan", "hecubatrojan.com", "htrojan@usc.edu", "The mother of troy", "htrojan");
-	Offering offering1 = new Offering("The best offering", "goodImg.com", 6.95, 123456780, 123456789, "chinese", "New North");
-	Offering offering2 = new Offering("The better offering", "goodFoodImg.com", 7.95, 124456780, 124456789, "Mexican", "Parkside");
+	Offering offering1 = new Offering("The best offering", "goodImg.com", 6.95, 123456780, 123456789, "chinese", "New North", user1.getEmail());
+	Offering offering2 = new Offering("The better offering", "goodFoodImg.com", 7.95, 124456780, 124456789, "Mexican", "Parkside", user2.getEmail());
 
 
 	@Test
@@ -49,7 +49,7 @@ class JDBCTests {
 
 	@Test
 	void testAddRemoveOfferings() {
-		JDBCDriver.addOffering(offering1, user1.getEmail());
+		JDBCDriver.addOffering(offering1);
 		
 		Offering temp = JDBCDriver.getOffering(offering1.getId());
 		
@@ -61,6 +61,7 @@ class JDBCTests {
 		assertEquals(temp.getName(), offering1.getName());
 		assertEquals(temp.getPrice(), offering1.getPrice());
 		assertEquals(temp.getStartTime(), offering1.getStartTime());
+		assertEquals(temp.getChefEmail(), offering1.getChefEmail());
 		assertTrue(temp.equals(offering1));
 		
 		ArrayList<Offering> offerings = JDBCDriver.getAllOfferings();
@@ -83,8 +84,12 @@ class JDBCTests {
 	
 	@Test
 	void testGetOfferingsByUser() {
-		JDBCDriver.addOffering(offering1, user1.getEmail());
-		JDBCDriver.addOffering(offering2, user2.getEmail());
+		
+		JDBCDriver.addUser(user1);
+		JDBCDriver.addUser(user2);
+		
+		JDBCDriver.addOffering(offering1);
+		JDBCDriver.addOffering(offering2);
 		
 		ArrayList<Offering> offerings = JDBCDriver.getOfferingsByUser(user1.getEmail());
 		boolean success1 = false;

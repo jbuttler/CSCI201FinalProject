@@ -50,16 +50,17 @@ public class OfferingsServlet extends HttpServlet {
 		cal.set(year, month, date, Integer.parseInt(endParsed[0]), Integer.parseInt(endParsed[1]));
 		long endMillis = cal.getTimeInMillis();
 		
+
+		User user = (User) request.getSession().getAttribute("currentUser");
 		Offering offering = new Offering((String)request.getParameter("name"),
 				(String)request.getParameter("imageUrl"),
 				Double.parseDouble((String)request.getParameter("price")),
 				startMillis,
 				endMillis,
 				(String)request.getParameter("cuisineType"),
-				(String)request.getParameter("location"));
-		User user = (User) request.getSession().getAttribute("currentUser");
-		String email = user.getEmail();
-		JDBCDriver.addOffering(offering, email);
+				(String)request.getParameter("location"),
+				user.getEmail());
+		JDBCDriver.addOffering(offering);
 		response.sendRedirect("ProfilePage.jsp");
 	}
 

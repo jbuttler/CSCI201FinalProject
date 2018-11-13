@@ -9,8 +9,9 @@ public class Offering {
 	private long endTime;
 	private String cuisineType;
 	private String location;
+	private String chefEmail;
 	
-	public Offering(String name, String imageUrl, double price, long startTime, long endTime, String cuisineType, String location) {
+	public Offering(String name, String imageUrl, double price, long startTime, long endTime, String cuisineType, String location, String chefEmail) {
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.price = price;
@@ -18,6 +19,7 @@ public class Offering {
 		this.endTime = endTime;
 		this.cuisineType = cuisineType;
 		this.location = location;
+		this.chefEmail = chefEmail;
 	}
 	
 	public boolean equals(Offering offering) {
@@ -30,7 +32,8 @@ public class Offering {
 		retval &= this.getLocation().equals(offering.getLocation());
 		retval &= this.getName().equals(offering.getName());
 		retval &= this.getPrice() == offering.getPrice();
-		retval &= this.getStartTime() == offering.getStartTime();		
+		retval &= this.getStartTime() == offering.getStartTime();	
+		retval &= this.getChefEmail().equals(offering.getChefEmail());
 		
 		return retval;
 	}
@@ -97,5 +100,13 @@ public class Offering {
 	
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public String getChefEmail() {
+		return chefEmail;
+	}
+
+	public void setChefEmail(String chefEmail) {
+		this.chefEmail = chefEmail;
 	}
 }

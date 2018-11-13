@@ -25,8 +25,9 @@
 			vertical-align: middle;
 		}
 		#ProfileImage {
-			width: 25%;
+			width: 20%;
 			height: auto;
+			border-radius: 50%;
 			margin: 0;
 			float: left;
 		}
@@ -67,6 +68,14 @@
 	    	cursor: pointer;
 	    	-webkit-border-radius: 5px;
 	    	border-radius: 5px;
+		}
+		input[type=list] {
+	    	padding:5px; 
+	    	border:2px solid #ccc; 
+	    	-webkit-border-radius: 5px;
+	    	border-radius: 5px;
+	    	font-size: 20px;
+	    	margin-top: 5px;
 		}
 		#AddFood input[type=text] {
 	    	padding:5px; 
@@ -170,14 +179,13 @@
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
         </div>
     </div>
-    <div id="title">${currentUser.getName()}</div>
     
     <div id="main">
     	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
+    	
 	    <div id="ProfileBox">
        		<h2>Rating: 5/5 Stars</h2>
        		<h2>Contact: ${currentUser.getEmail()}</h2>
-            
 	    </div>
 	    
 	    <div id="AddFood">
@@ -185,10 +193,42 @@
 	    	<div>
   		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
  	 				<input type="text" name="name" placeholder="Cuisine Name" required>
-  					<input type="text" name="location" placeholder="Location" required>
+  					<input type="text" name="location" onclick="this.type = 'list'" placeholder="Location" list="browser">
+  						<datalist id="browser">
+  							<option value="Cowlings & Ilium">
+    						<option value="Parkside">
+    						<option value="South">
+   							<option value="New North">
+						    <option value="Birnkrant">
+						    <option value="West">
+						    <option value="McCarthy">
+						    <option value="Cale & Irani">
+						    <option value="Priam">
+						    <option value="Cargar">
+						    <option value="Century">						    						    
+						</datalist>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
   					<input type="text" name="price" placeholder="Price" required>
-  					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>			
+  					<input type="text" name="cuisineType" onclick="this.type = 'list'" placeholder="Cuisine Type" list="browser1">
+  						<datalist id="browser1">
+  							<option value="American">
+    						<option value="Chinese">
+    						<option value="Mexican">
+    						<option value="Indian">
+   							<option value="Thai">
+						    <option value="Korean">
+						    <option value="Japanese">
+						    <option value="Vietnamese">
+						    <option value="North African">
+						    <option value="Mediterranean">
+						    <option value="Middle Eastern">
+						    <option value="Italian">
+						    <option value="Greek">
+						    <option value="Spanish">
+						    <option value="French">
+						    <option value="German">
+						    <option value="Other">						    							    					    						    						    					    						    						    						    						    
+						</datalist>		
   					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
   					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
   					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
