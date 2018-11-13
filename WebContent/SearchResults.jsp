@@ -69,7 +69,7 @@
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
-            <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link">Profile</p></a>
+            <a href="ProfileServlet"><p id="nav-signout" class="nav-link">Profile</p></a>
         </div>
     </div>
 
