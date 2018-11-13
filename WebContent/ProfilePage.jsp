@@ -199,7 +199,10 @@
 	  		 </div>
 	    </div>
 	    
+	    <div class="clearfloat"></div>
+	    
 	    <div class="title">My Offerings</div>
+	    
 	    <div id="offerings">
 	        <div class="holder">
 	            <a href="">
