@@ -163,7 +163,7 @@
         <div id="nav-content">
             <a href="HomePage.jsp"><p id="nav-home" class="nav-link">Home</p></a>
             <a href="OfferingsServlet"><p id="nav-offerings" class="nav-link">Offerings</p></a>
-            <p id="nav-search"><input type="text" placeholder="Search Users"></p>
+            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="ProfilePage.jsp"><p id="nav-profile" class="nav-link">Profile</p></a>
             <a href="SignIn.jsp"><p id="nav-signout" class="nav-link">Sign Out</p></a>
         </div>

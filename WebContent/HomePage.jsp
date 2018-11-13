@@ -139,7 +139,7 @@
         <div id="nav-content">
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link current-page">Home</p></a>
-            <p id="nav-search"><input type="text" placeholder="Search Users"></p>
+            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link">Profile</p></a>
         </div>
