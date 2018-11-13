@@ -107,50 +107,6 @@
 	<%
 		}
 	%>
-	<!--
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://cdn.vox-cdn.com/thumbor/TNtdNPS-5y7A5_nlmwlh3TSlMK8=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/47597665/185032680.0.jpg" alt="User Picture">
-                </div>
-                <div class="name">James Buttler</div>
-                <div class="rating">4.3 Stars</div>
-                <div class="location">Cale/Irani</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://cdn.vox-cdn.com/thumbor/TNtdNPS-5y7A5_nlmwlh3TSlMK8=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/47597665/185032680.0.jpg" alt="User Picture">
-                </div>
-                <div class="name">James Buttler</div>
-                <div class="rating">4.3 Stars</div>
-                <div class="location">Cale/Irani</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://cdn.vox-cdn.com/thumbor/TNtdNPS-5y7A5_nlmwlh3TSlMK8=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/47597665/185032680.0.jpg" alt="User Picture">
-                </div>
-                <div class="name">James Buttler</div>
-                <div class="rating">4.3 Stars</div>
-                <div class="location">Cale/Irani</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://cdn.vox-cdn.com/thumbor/TNtdNPS-5y7A5_nlmwlh3TSlMK8=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/47597665/185032680.0.jpg" alt="User Picture">
-                </div>
-                <div class="name">James Buttler</div>
-                <div class="rating">4.3 Stars</div>
-                <div class="location">Cale/Irani</div>
-            </a>
-        </div> -->
         
     </div>
 
