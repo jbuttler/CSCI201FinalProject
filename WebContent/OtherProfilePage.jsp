@@ -1,3 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="datatypes.Offering" %>
+<%@ page import="datatypes.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -171,77 +181,55 @@
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
-            <a href="ProfileServlet"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
+            <a href="ProfileServlet"><p id="nav-signout" class="nav-link">Profile</p></a>
         </div>
     </div>
     
     <div id="main">
+    	<% User otherUser = (User)request.getAttribute("otherUser"); %>
 	    <div id="ProfileBox">
-	    	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
-       		<h2>${currentUser.getName()}</h2>
-       		<h2>${currentUser.getEmail()}</h2>
+	    	<img id="ProfileImage" src="<%= otherUser.getImageUrl() %>"/>
+       		<h2><%= otherUser.getName() %></h2>
+       		<h2><%= otherUser.getEmail() %></h2>
 	    </div>
 	    
 	    <div class="clearfloat"></div>
 	    
-	    <div class="title">My Offerings</div>
+	    <div class="title"><%= otherUser.getName().split(" ")[0] %>'s Offerings</div>
 	    
 	    <div id="offerings">
-	        <div class="holder">
-	            <a href="">
-	                <div class="photoholder">
-	                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-	                </div>
-	                <div class="meal-title">Chicken Katsu w/ Rice</div>
-	                <div class="meal-price">$34.69</div>
-	                <div class="meal-time">10:30am - 11:30pm</div>
-	            </a>
-	        </div>
-	
-	        <div class="holder">
-	            <a href="">
-	                <div class="photoholder">
-	                    <img class="photo" src="http://images.media-allrecipes.com/userphotos/960x960/4027930.jpg" alt="Meal Picture">
-	                </div>
-	                <div class="meal-title">Chicken Katsu w/ Rice</div>
-	                <div class="meal-price">$34.69</div>
-	                <div class="meal-time">10:30am - 11:30pm</div>
-	            </a>
-	        </div>
-	
-	        <div class="holder">
-	            <a href="">
-	                <div class="photoholder">
-	                    <img class="photo" src="https://images.media-allrecipes.com/userphotos/560x315/5816671.jpg" alt="Meal Picture">
-	                </div>
-	                <div class="meal-title">Chicken Katsu w/ Rice</div>
-	                <div class="meal-price">$34.69</div>
-	                <div class="meal-time">10:30am - 11:30pm</div>
-	            </a>
-	        </div>
-	
-	        <div class="holder">
-	            <a href="">
-	                <div class="photoholder">
-	                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-	                </div>
-	                <div class="meal-title">Chicken Katsu w/ Rice</div>
-	                <div class="meal-price">$34.69</div>
-	                <div class="meal-time">10:30am - 11:30pm</div>
-	            </a>
-	        </div>
-	
-	        <div class="holder">
-	            <a href="">
-	                <div class="photoholder">
-	                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-	                </div>
-	                <div class="meal-title">Chicken Katsu w/ Rice</div>
-	                <div class="meal-price">$34.69</div>
-	                <div class="meal-time">10:30am - 11:30pm</div>
-	            </a>
-	        </div>
-	    </div>
+    	<%
+	    	List<Offering> offerings = (ArrayList<Offering>)request.getAttribute("offerings");
+    		if(offerings == null) {
+    			offerings = new ArrayList<Offering>();
+    		}
+			for(Offering offering : offerings) {
+    	%>
+    		<div class="holder">
+    			<a href="OtherProfileServlet?email=<%= offering.getChefEmail() %>">
+    				<div class="photoholder">
+    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    				</div>
+    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-time">
+    					<%
+	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
+	    					Date startDate = new Date(offering.getStartTime());
+	    					String startTimeString = dateFormatter.format(startDate);
+	    					
+	    					Date endDate = new Date(offering.getEndTime());
+	    					String endTimeString = dateFormatter.format(endDate);
+    					%>
+    					<%= startTimeString.substring(0, 8) %> - <%= endTimeString.substring(0, 8) %>
+    				</div>
+    			</a>
+    		</div>
+    	<%
+			}
+    	%>
+    	</div> <!-- #offerings -->
+	    
     </div>
     
     

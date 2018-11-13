@@ -61,7 +61,7 @@ public class OfferingsServlet extends HttpServlet {
 				(String)request.getParameter("location"),
 				user.getEmail());
 		JDBCDriver.addOffering(offering);
-		response.sendRedirect("ProfileServlet?message=Congrutulations, " + offering.getName() + " was posted!");
+		response.sendRedirect("ProfileServlet?message=Congratulations, " + offering.getName() + " was posted!");
 	}
 
 }
