@@ -116,6 +116,7 @@ public class JDBCDriver {
 	
 	public static ArrayList<User> findUsers(String query) {
 		ArrayList<User> users = new ArrayList<User>();
+		
 		if(query.equals("")) {
 			users = getAllUsers();
 		}
@@ -144,12 +145,12 @@ public class JDBCDriver {
 		return users;
 	}
 	
-	public static void addOffering(Offering offering, String email){
+	public static void addOffering(Offering offering){
 		connect();
 		try {
 			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, price, location, startTime, endTime, valid, imgURL) "
 					+ "VALUES(?, ?, ?, ?, ?, ?, ?, true, ?)");
-			ps.setString(1, email);
+			ps.setString(1, offering.getChefEmail());
 			ps.setString(2, offering.getCuisineType());
 			ps.setString(3, offering.getName());
 			ps.setDouble(4, offering.getPrice());
@@ -187,7 +188,7 @@ public class JDBCDriver {
 			if(rs.next()) {
 				retval = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"), rs.getString("chefEmail"));
 				retval.setId(rs.getInt("offeringID"));
 			}
 		} catch (SQLException sqle) {
@@ -208,7 +209,7 @@ public class JDBCDriver {
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"), rs.getString("chefEmail"));
 				offering.setId(rs.getInt("offeringID"));
 				offerings.add(offering);
 			}
@@ -231,7 +232,7 @@ public class JDBCDriver {
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"), rs.getString("chefEmail"));
 				offering.setId(rs.getInt("offeringID"));
 				offerings.add(offering);
 			}
@@ -254,7 +255,7 @@ public class JDBCDriver {
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
-						rs.getString("cuisineType"), rs.getString("location"));
+						rs.getString("cuisineType"), rs.getString("location"), rs.getString("chefEmail"));
 				offering.setId(rs.getInt("offeringID"));
 				offerings.add(offering);
 			}

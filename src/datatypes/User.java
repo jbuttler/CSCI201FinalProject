@@ -18,6 +18,18 @@ public class User {
 		this.contactInfo = contactInfo;
 	}
 
+	public boolean equals(User user) {
+		boolean retval = true;
+		
+		retval &= this.getName().equals(user.getName());
+		retval &= this.getBio().equals(user.getBio());
+		retval &= this.getContactInfo().equals(user.getContactInfo());
+		retval &= this.getEmail().equals(user.getEmail());
+		retval &= this.getImageUrl().equals(user.getImageUrl());		
+		
+		return retval;
+	}
+	
 	public String getName() {
 		return name;
 	}
