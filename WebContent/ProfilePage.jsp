@@ -73,7 +73,7 @@
     	border-radius: 5px; 
 	}
 	
-	input[type=text] {
+	input[type=text], input[type=number] {
     	padding:5px; 
     	border:2px solid #ccc; 
     	-webkit-border-radius: 5px;
