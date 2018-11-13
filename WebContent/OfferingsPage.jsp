@@ -103,7 +103,7 @@
 				
 				var mealTime = document.createElement("div");
 				mealTime.className = "meal-time";
-				mealTime.innerHTML = offering.startTime + ' - ' + offering.endTime;
+				mealTime.innerHTML = twentyFourToTwelve(offering.startTime) + ' - ' + twentyFourToTwelve(offering.endTime);
 				link.appendChild(mealTime);
 				
 				holder.appendChild(link);
@@ -114,6 +114,21 @@
 			socket.onclose = function(event) {
 				console.log("Disconnected!");
 			}
+		}
+		
+		function twentyFourToTwelve(timeString) {
+			var parts = timeString.split(':');
+			var hour = parseInt(parts[0]);
+			var minute = parseInt(parts[1]);
+			var amOrPm;
+			if hour >= 13 {
+				hour -= 12;
+				amOrPm = "PM"
+			}
+			else {
+				amOrPm = "AM";
+			}
+			return hour + ":" + minute + " "  + amOrPm;
 		}
   	</script>
 </head>
