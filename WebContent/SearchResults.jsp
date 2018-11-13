@@ -1,3 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="datatypes.Offering" %>
+<%@ page import="datatypes.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -75,7 +86,28 @@
 
     <div id="title">Search Results</div>
     
+    
     <div id="users">
+    <% 
+    	List<User> results = (ArrayList<User>)request.getAttribute("results");
+   		if(results == null) {
+   			results = new ArrayList<User>();
+   		}
+		for(User user : results) {
+    %>
+        <div class="holder">
+            <a href="OtherProfileServlet?email=<%= user.getEmail() %>">
+                <div class="photoholder">
+                    <img class="photo" src="<%= user.getImageUrl() %>" alt="User Picture">
+                </div>
+                <div class="name"><%= user.getName() %></div>
+                <div class="location"><%= user.getEmail() %></div>
+            </a>
+        </div>
+	<%
+		}
+	%>
+	<!--
         <div class="holder">
             <a href="">
                 <div class="photoholder">
@@ -118,18 +150,7 @@
                 <div class="rating">4.3 Stars</div>
                 <div class="location">Cale/Irani</div>
             </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://cdn.vox-cdn.com/thumbor/TNtdNPS-5y7A5_nlmwlh3TSlMK8=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/47597665/185032680.0.jpg" alt="User Picture">
-                </div>
-                <div class="name">James Buttler</div>
-                <div class="rating">4.3 Stars</div>
-                <div class="location">Cale/Irani</div>
-            </a>
-        </div>
+        </div> -->
         
     </div>
 
