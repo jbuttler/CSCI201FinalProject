@@ -114,6 +114,36 @@ public class JDBCDriver {
 		}
 	}
 	
+	public ArrayList<User> findUsers(String query) {
+		ArrayList<User> users = new ArrayList<User>();
+		if(query.equals("")) {
+			users = getAllUsers();
+		}
+		else {
+			connect();
+			try {
+				ps = conn.prepareStatement("SELECT * FROM Users WHERE name LIKE ?");
+				ps.setString(1, "%" + query + "%");
+				rs = ps.executeQuery();
+
+				while(rs.next()) {
+					User user = new User(
+							rs.getString("name"), 
+							rs.getString("imgURL"), 
+							rs.getString("email"), 
+							rs.getString("bio"), 
+							rs.getString("contactinfo"));
+					users.add(user);
+				}	
+			} catch (SQLException sqle) {
+				System.out.println ("SQLException: " + sqle.getMessage());
+			} finally {
+				close();
+			}
+		}
+		return users;
+	}
+	
 	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
