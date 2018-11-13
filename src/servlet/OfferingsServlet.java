@@ -51,7 +51,6 @@ public class OfferingsServlet extends HttpServlet {
 		long endMillis = cal.getTimeInMillis();
 		
 		Offering offering = new Offering((String)request.getParameter("name"),
-				(String)request.getParameter("description"),
 				(String)request.getParameter("imageUrl"),
 				Double.parseDouble((String)request.getParameter("price")),
 				startMillis,

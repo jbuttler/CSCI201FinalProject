@@ -185,7 +185,7 @@ public class JDBCDriver {
 			rs = ps.executeQuery();	
 			
 			if(rs.next()) {
-				retval = new Offering(rs.getString("name"), rs.getString("description"), 
+				retval = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
 				retval.setId(rs.getInt("offeringID"));
@@ -206,7 +206,7 @@ public class JDBCDriver {
 			rs = ps.executeQuery();	
 			
 			while(rs.next()) {
-				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
 				offering.setId(rs.getInt("offeringID"));
@@ -229,7 +229,7 @@ public class JDBCDriver {
 			rs = ps.executeQuery();	
 			
 			while(rs.next()) {
-				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
 				offering.setId(rs.getInt("offeringID"));
@@ -252,7 +252,7 @@ public class JDBCDriver {
 			rs = ps.executeQuery();	
 			
 			while(rs.next()) {
-				Offering offering = new Offering(rs.getString("name"), rs.getString("description"), 
+				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 
 						rs.getString("cuisineType"), rs.getString("location"));
 				offering.setId(rs.getInt("offeringID"));

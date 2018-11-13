@@ -3,7 +3,6 @@ package datatypes;
 public class Offering {
 	private int id;
 	private String name;
-	private String description;
 	private String imageUrl;
 	private double price;
 	private long startTime;
@@ -11,9 +10,8 @@ public class Offering {
 	private String cuisineType;
 	private String location;
 	
-	public Offering(String name, String description, String imageUrl, double price, long startTime, long endTime, String cuisineType, String location) {
+	public Offering(String name, String imageUrl, double price, long startTime, long endTime, String cuisineType, String location) {
 		this.name = name;
-		this.description = description;
 		this.imageUrl = imageUrl;
 		this.price = price;
 		this.startTime = startTime;
@@ -26,7 +24,6 @@ public class Offering {
 		boolean retval = true;
 		
 		retval &= this.getCuisineType().equals(offering.getCuisineType());
-		retval &= this.getDescription().equals(offering.getDescription());
 		retval &= this.getEndTime() == offering.getEndTime();
 		retval &= this.getId() == offering.getId();
 		retval &= this.getImageUrl().equals(offering.getImageUrl());
@@ -52,14 +49,6 @@ public class Offering {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 	
 	public String getImageUrl() {

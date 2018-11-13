@@ -14,8 +14,8 @@ class JDBCTests {
 
 	User user1 = new User("Tommy Trojan", "tommytrojan.com", "ttrojan@usc.edu", "The dopest trojan", "ttrojan");
 	User user2 = new User("Hecuba Trojan", "hecubatrojan.com", "htrojan@usc.edu", "The mother of troy", "htrojan");
-	Offering offering1 = new Offering("The best offering", "You'll love this offering.", "goodImg.com", 6.95, 123456780, 123456789, "chinese", "New North");
-	Offering offering2 = new Offering("The better offering", "You'll love this offering.", "goodFoodImg.com", 7.95, 124456780, 124456789, "Mexican", "Parkside");
+	Offering offering1 = new Offering("The best offering", "goodImg.com", 6.95, 123456780, 123456789, "chinese", "New North");
+	Offering offering2 = new Offering("The better offering", "goodFoodImg.com", 7.95, 124456780, 124456789, "Mexican", "Parkside");
 
 
 	@Test
@@ -54,7 +54,6 @@ class JDBCTests {
 		Offering temp = JDBCDriver.getOffering(offering1.getId());
 		
 		assertEquals(temp.getCuisineType(), offering1.getCuisineType());
-		assertEquals(temp.getDescription(), offering1.getDescription());
 		assertEquals(temp.getEndTime(), offering1.getEndTime());
 		assertEquals(temp.getId(), offering1.getId());
 		assertEquals(temp.getImageUrl(), offering1.getImageUrl());
