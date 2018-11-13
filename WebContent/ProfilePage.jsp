@@ -25,16 +25,18 @@
 			vertical-align: middle;
 		}
 		#ProfileImage {
-			width: 25%;
+			width: 60%;
 			height: auto;
 			margin: 0;
-			float: left;
+			border-radius: 50%;
 		}
 		#ProfileBox {
 			float: left;
-			width: 38%;
+			width: 43%;
 			margin-left: 2%;
-			text-align: left;
+			text-align: center;
+			float: left;
+			font-size: 1.2em;
 		}
 		#ProfileBox p {
 			margin-top: 0;
@@ -44,7 +46,7 @@
 			display: inline-block;
 			position: relative;
 			width: 33%;
-			margin-left: 2%;
+			margin-left: 8%;
 		}
 		.CenterText {
 			text-align: center;
@@ -139,6 +141,9 @@
             right: -9999px;
             margin: auto;
         }
+        #main {
+        	margin-top: 2%;
+        }
     </style>
     <script>
     	var socket;
@@ -170,14 +175,12 @@
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
         </div>
     </div>
-    <div id="title">${currentUser.getName()}</div>
     
     <div id="main">
-    	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
 	    <div id="ProfileBox">
-       		<h2>Rating: 5/5 Stars</h2>
-       		<h2>Contact: ${currentUser.getEmail()}</h2>
-            
+	    	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
+       		<h2>${currentUser.getName()}</h2>
+       		<h2>${currentUser.getEmail()}</h2>
 	    </div>
 	    
 	    <div id="AddFood">
