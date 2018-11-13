@@ -4,15 +4,18 @@
 
 <html>
 <link href="SignIn.css" rel="stylesheet" type="text/css">
+<style>
+
+
+</style>
   <head>
     <title>Foodbook | HomePage</title>
     <meta charset="utf-8" />
   </head>
   <body>
   
-    
     <div class = main>
-    
+
     <div class = middleElements>
         <h1>Foodbook</h1>
 <!--     	Add buttons to initiate auth sequence and sign out -->
@@ -34,7 +37,7 @@
 		</div>
 		<br>
 		<div id="holder">
-  			<button class="niceButton" onClick="redirectPage()">To Food!</button>
+  			<button id="niceButton" class="niceButton" onClick="redirectPage()">To Food!</button>
 		</div>
 		
 		
@@ -158,7 +161,7 @@
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
-          holder.style.display = 'block';
+          niceButton.style.display = 'block';
           
           
           
@@ -173,7 +176,7 @@
         } else {
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
-          holder.style.display = 'none';
+          niceButton.style.display = 'none';
         }
       }
       

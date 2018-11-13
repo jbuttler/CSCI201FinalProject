@@ -19,7 +19,7 @@ body {
 
 .main{
 	position: absolute;
-	top: 200px;
+	top: 180px;
 	vertical-align: middle;
 }
 
@@ -139,7 +139,7 @@ button ~ button {
 
 /* Position the image container (needed to position the left and right arrows) */
 .container {
-  position: relative;
+  position:relative;
 }
 
 /* Hide the images by default */
@@ -166,8 +166,6 @@ button ~ button {
 img{
 	width:auto;
 	height: 200px;
-	
-    
 }
 
 /* Container for image text */
@@ -176,7 +174,7 @@ img{
   background-color: #FF6666;
   padding: 2px 16px;
   color: white;
-   font-family: Verdana, Geneva, sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   font-size: 20px;
 }
 
@@ -252,5 +250,6 @@ img{
 
 /* Presentation stuff */
 #holder {
-
+	height: 50px;
 }
+
