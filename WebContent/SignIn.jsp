@@ -37,7 +37,7 @@
 		</div>
 		<br>
 		<div id="holder">
-  			<button id="niceButton" class="niceButton" onClick="redirectPage()">To Food!</button>
+  			<button id="niceButton" class="niceButton" style="display: none;" onClick="redirectPage()">To Food!</button>
 		</div>
 		
 		
@@ -215,7 +215,7 @@
       }
       
       function redirectPage(){
-    	  window.location.replace("ProfilePage.jsp");
+    	  window.location.replace("HomePage.jsp");
       }
 
       /**

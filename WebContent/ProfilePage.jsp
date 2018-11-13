@@ -45,7 +45,7 @@
 			display: inline-block;
 			position: relative;
 			width: 33%;
-			margin-left: 8%;
+			margin-left: 15%;
 		}
 		.CenterText {
 			text-align: center;
@@ -62,17 +62,20 @@
 			width: 95%;
 			margin-bottom: 3px;
 		}
-		input[type=submit] {
+		#AddFood input[type=submit] {
 	    	padding: 10px 50px; 
 	    	font-size: 20px;
-	    	background: #6B8E23;
+	    	background: #FF6666;
 	    	color: white;
 	    	border: 0 none;
 	    	cursor: pointer;
 	    	-webkit-border-radius: 5px;
 	    	border-radius: 5px;
+	    	display: block;
+	    	margin: 2% auto;
+	    	width: 50%;
 		}
-		input[type=list] {
+		#AddFood input[type=list] {
 	    	padding:5px; 
 	    	border:2px solid #ccc; 
 	    	-webkit-border-radius: 5px;
@@ -88,7 +91,7 @@
 	    	font-size: 20px;
 	    	margin-top: 5px;
 		}
-		input[type=time] {
+		#AddFood input[type=time] {
 	    	padding:5px; 
 	    	border:2px solid #ccc; 
 	    	-webkit-border-radius: 5px;
@@ -179,7 +182,7 @@
 
     <div id="nav-bar">
         <div id="nav-content">
-            <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
+            <a href="SignIn.jsp"><p id="nav-home" class="nav-link logo">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>

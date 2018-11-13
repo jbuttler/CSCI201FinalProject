@@ -136,7 +136,7 @@
 <body onload="connectToServer()">
     <div id="nav-bar">
         <div id="nav-content">
-            <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
+            <a href="SignIn.jsp"><p id="nav-home" class="nav-link logo">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>

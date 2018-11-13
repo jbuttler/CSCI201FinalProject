@@ -4,7 +4,7 @@ body {
 }
 #nav-bar {
     height: 50px;
-    background-color: crimson;
+    background-color: #FF6666;
 }
 #nav-bar p {
     float: left;
@@ -14,7 +14,7 @@ body {
     padding-top: 5px;
 }
 #nav-bar .nav-link:hover {
-    background-color: gold;
+    color: #FFFF00;
 }
 #nav-content {
     width: 80%;
@@ -25,7 +25,7 @@ body {
 #nav-content a {
     text-decoration: none;
     font-size: 1.9em;
-    color: black;
+    color: white;
 }
 .nav-link {
     width: 18%;
@@ -47,7 +47,16 @@ body {
     text-align: center;
 }
 .current-page {
-    background-color: gold;
+    color: #FF6666;
+    background-color: white;
+}
+.logo {
+	  font-family: Verdana, Geneva, sans-serif;
+  font-size: 30px;
+	background-color: #FF6666;
+  -webkit-text-fill-color: #FF6666; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #FFFF00;
 }
 #title {
     width: 80%;
