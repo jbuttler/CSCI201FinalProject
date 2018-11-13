@@ -112,7 +112,7 @@
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <p id="nav-search"><input type="text" placeholder="Search Users"></p>
-            <a href="OfferingsPage.jsp"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>
+            <a href="OfferingsServlet"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link">Profile</p></a>
         </div>
     </div>

@@ -166,7 +166,7 @@
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <p id="nav-search"><input type="text" placeholder="Search Users"></p>
-            <a href="OfferingsPage.jsp"><p id="nav-profile" class="nav-link">Offerings</p></a>
+            <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
         </div>
     </div>
@@ -183,7 +183,7 @@
 	    <div id="AddFood">
 	    	<h2 class="CenterText">Add Offering</h2>
 	    	<div>
-  		 		<form id="forms" name="eventForm" method="GET" action="OfferingsServlet">
+  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
  	 				<input type="text" name="name" placeholder="Cuisine Name" required>
   					<input type="text" name="location" placeholder="Location" required>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
