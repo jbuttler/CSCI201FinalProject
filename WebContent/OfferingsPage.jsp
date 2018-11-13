@@ -69,6 +69,21 @@
         }
     </style>
   	<script>
+	  	function twentyFourToTwelve(timeString) {
+			var parts = timeString.split(':');
+			var hour = parseInt(parts[0]);
+			var minute = parseInt(parts[1]);
+			var amOrPm;
+			if(hour >= 13) {
+				hour -= 12;
+				amOrPm = "PM"
+			}
+			else {
+				amOrPm = "AM";
+			}
+			return hour + ":" + minute + " "  + amOrPm;
+		}
+  	
 		var socket;
 		function connectToServer() {
 			socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/ws");
@@ -98,7 +113,7 @@
 				
 				var mealPrice = document.createElement("div");
 				mealPrice.className = "meal-price";
-				mealPrice.innerHTML = offering.price;
+				mealPrice.innerHTML = "$" + offering.price;
 				link.appendChild(mealPrice);
 				
 				var mealTime = document.createElement("div");
@@ -114,21 +129,6 @@
 			socket.onclose = function(event) {
 				console.log("Disconnected!");
 			}
-		}
-		
-		function twentyFourToTwelve(timeString) {
-			var parts = timeString.split(':');
-			var hour = parseInt(parts[0]);
-			var minute = parseInt(parts[1]);
-			var amOrPm;
-			if hour >= 13 {
-				hour -= 12;
-				amOrPm = "PM"
-			}
-			else {
-				amOrPm = "AM";
-			}
-			return hour + ":" + minute + " "  + amOrPm;
 		}
   	</script>
 </head>
