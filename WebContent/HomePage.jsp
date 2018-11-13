@@ -199,7 +199,7 @@
 
     <h2>Activity Map</h2>
     <div id="activity-map">
-        <img id="map-base" src="img/map_base.jpg" alt="Activity Map">
+        <img id="map-base" src="img/map_base.JPG" alt="Activity Map">
         <img id="parkside" src="img/marker.png" alt="">
         <img id="south" src="img/marker.png" alt="">
         <img id="newnorth" src="img/marker.png" alt="">
