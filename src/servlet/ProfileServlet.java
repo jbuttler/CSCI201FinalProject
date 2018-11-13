@@ -28,6 +28,10 @@ public class ProfileServlet extends HttpServlet {
 		String email = currentUser.getEmail();
 		List<Offering> userOfferings = JDBCDriver.getOfferingsByUser(email);
 		request.setAttribute("offerings", userOfferings);
+		String message = request.getParameter("message");
+		if(message != null && !message.equals("")) {
+			request.setAttribute("message", message);
+		}
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/ProfilePage.jsp");
 		rd.forward(request, response);
 	}

@@ -185,9 +185,14 @@
 			socket.send(JSON.stringify(offeringObject));
 			return true;
 		}
+	    function alertSuccessToUser(message) {
+	    	if(message != "null") {
+	    		alert(message);
+	    	}
+	    }
     </script>
 </head>
-<body onload="connectToServer()">
+<body onload="connectToServer(); alertSuccessToUser('<%= (String)request.getAttribute("message") %>')">
 
     <div id="nav-bar">
         <div id="nav-content">
