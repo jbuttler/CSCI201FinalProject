@@ -118,37 +118,38 @@
     </div>
     <div id="title">Offerings</div>
     
-    <div id="main">
+    <div id="offerings">
     	<%
 	    	List<Offering> offerings = (ArrayList<Offering>)request.getAttribute("offerings");
     		if(offerings == null) {
     			offerings = new ArrayList<Offering>();
     		}
-			for(Offering offering : offerings){
+			for(Offering offering : offerings) {
     	%>
-    		<div class="offering-div">
-    			<img src=<%= offering.getImageUrl() %>>
-    			<div class="offering-name">
-    				<%= offering.getName() %>
-    			</div>
-    			<div class="offering-time">
-    				<%
-    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
-    					Date startDate = new Date(offering.getStartTime());
-    					String startTimeString = dateFormatter.format(startDate);
-    					
-    					Date endDate = new Date(offering.getEndTime());
-    					String endTimeString = dateFormatter.format(endDate);
-    				%>
-    				<%= startTimeString %> - <%= endTimeString %>
-    			</div>
-    			<div id="price">
-    				<%= String.format("%.2f", offering.getPrice()) %>
-    			</div>
+    		<div class="holder">
+    			<a href="">
+    				<div class="photoholder">
+    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    				</div>
+    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-price"><%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-time">
+    					<%
+	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
+	    					Date startDate = new Date(offering.getStartTime());
+	    					String startTimeString = dateFormatter.format(startDate);
+	    					
+	    					Date endDate = new Date(offering.getEndTime());
+	    					String endTimeString = dateFormatter.format(endDate);
+    					%>
+    					<%= startTimeString.substring(0, 8) %> - <%= endTimeString.substring(0, 8) %>
+    				</div>
+    			</a>
     		</div>
     	<%
 			}
     	%>
+    					
 </body>
 
 </html>
