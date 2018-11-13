@@ -224,13 +224,13 @@
   					<br>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
   					<br>
-  					<input type="text" name="price" placeholder="Price" required>
+  					<input type="number" min="0.01" max="2500" step="0.01" name="price" placeholder="Price" required>
   					<br>
   					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>
   					<br> 					
-  					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
+  					<input type="text" name="startTime" placeholder="Start Time" onfocus="this.type = 'time'" required>
   					<br>
-  					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
+  					<input type="text" name="endTime" placeholder="End Time" onfocus="this.type = 'time'" required>
   					<br>
   					<br>
   					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
