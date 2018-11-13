@@ -30,15 +30,15 @@ class JDBCTests {
 		assertEquals(tempUser.getContactInfo(), user1.getContactInfo());
 		assertEquals(tempUser.getName(), user1.getName());
 		assertEquals(tempUser.getOfferings(), tempUser.getOfferings());
-		
+		assertTrue(tempUser.equals(user1));
 		
 		JDBCDriver.addUser(user2);
 		ArrayList<User> users = JDBCDriver.getAllUsers();
 		boolean containsUser1 = false;
 		boolean containsUser2 = false;
 		for(User elem : users) {
-			containsUser1 |= elem.getEmail().equals(user1.getEmail());
-			containsUser2 |= elem.getEmail().equals(user2.getEmail());
+			containsUser1 |= elem.equals(user1);
+			containsUser2 |= elem.equals(user2);
 
 		}
 		
@@ -152,6 +152,72 @@ class JDBCTests {
 		}	
 		assertFalse(success1);
 		assertTrue(success2);
-		
 	}
+	
+	@Test
+	void testGetAllUsers() {
+		JDBCDriver.addUser(user1);
+		JDBCDriver.addUser(user2);
+		
+		ArrayList<User> users = JDBCDriver.findUsers("");
+		boolean success1 = false;
+		boolean success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertTrue(success1);
+		assertTrue(success2);
+		
+		users = JDBCDriver.findUsers("Trojan");
+		success1 = false;
+		success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertTrue(success1);
+		assertTrue(success2);
+		
+		users = JDBCDriver.findUsers(" ");
+		success1 = false;
+		success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertTrue(success1);
+		assertTrue(success2);
+		
+		users = JDBCDriver.findUsers("H");
+		success1 = false;
+		success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertFalse(success1);
+		assertTrue(success2);
+		
+		users = JDBCDriver.findUsers("h");
+		success1 = false;
+		success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertFalse(success1);
+		assertTrue(success2);
+		
+		users = JDBCDriver.findUsers("tommy");
+		success1 = false;
+		success2 = false;
+		for(User user: users) {
+			success1 |= user.equals(user1);
+			success2 |= user.equals(user2);
+		}	
+		assertTrue(success1);
+		assertFalse(success2);
+	}
+	
 }
