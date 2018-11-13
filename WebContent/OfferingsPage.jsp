@@ -81,6 +81,10 @@
 			else {
 				amOrPm = "AM";
 			}
+			
+			if(hour >= 12) {
+				amOrPm = "PM"
+			}
 			return hour + ":" + minute + " "  + amOrPm;
 		}
   	
