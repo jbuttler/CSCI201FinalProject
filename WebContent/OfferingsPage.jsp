@@ -71,33 +71,45 @@
   	<script>
 		var socket;
 		function connectToServer() {
-			socket = new WebSocket("ws://localhost:8080/CSCI201-WebSockets/ws");
+			socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/ws");
 			socket.onopen = function(event) {
 				console.log("Connected!");
 			}
+			
 			socket.onmessage = function(event) {
-				var offering = event.data;
+				var offering = JSON.parse(event.data);
 				
-				var offeringDiv = document.createElement("div");
+				var holder = document.createElement("div");
+				holder.className = "holder";
+				var link = document.createElement("a");
+				var photoholder = document.createElement("div");
+				photoholder.className = "photoholder";
+				var photo = document.createElement("img");
+				photo.className = "photo";
+				photo.src = offering.imageUrl;
 				
-	  			var offeringImage = document.createElement("img");
-	  			offeringImage.src = offering.imageUrl;
-	 			offeringDiv.appendChild(offeringImage);
-	 			
-	 			var offeringName = document.createElement("div");
-	 			offeringName.innerHTML = offering.name;
-	 			offeringDiv.appendChild(offeringName);
-	 			
-	 			var offeringTime = document.createElement("div");
-	 			offeringTime.innerHTML = offering.startTime + ' - ' + offering.endTime;
-	 			offeringDiv.appendChild(offeringTime);
-	 			
-	 			var offeringPrice = document.createElement("div");
-	 			offeringPrice.innerHTML = offering.price;
-	 			offeringPrice.appendChild(offeringPrice);
+				photoholder.appendChild(photo);
+				link.appendChild(photoholder);
 				
-	 			document.getElementById("main").appendChild(offeringDiv);
-	 			
+				var mealTitle = document.createElement("div");
+				mealTitle.className = "meal-title";
+				mealTitle.innerHTML = offering.name;
+				link.appendChild(mealTitle);
+				
+				var mealPrice = document.createElement("div");
+				mealPrice.className = "meal-price";
+				mealPrice.innerHTML = offering.price;
+				link.appendChild(mealPrice);
+				
+				var mealTime = document.createElement("div");
+				mealTime.className = "meal-time";
+				mealTime.innerHTML = offering.startTime + ' - ' + offering.endTime;
+				link.appendChild(mealTime);
+				
+				holder.appendChild(link);
+				document.getElementById("offerings").appendChild(holder);
+						
+	 			console.log(event.data);
 			}
 			socket.onclose = function(event) {
 				console.log("Disconnected!");
@@ -106,7 +118,7 @@
   	</script>
 </head>
 
-<body>
+<body onload="connectToServer()">
     <div id="nav-bar">
         <div id="nav-content">
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>

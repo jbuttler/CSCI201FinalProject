@@ -144,22 +144,26 @@
     	var socket;
    		function connectToServer() {
 			socket = new WebSocket("ws://localhost:8080/CSCI201_Final_Project/ws");
+			console.log("Connected!");
    		}
+
 	    function sendOffering() {
+	    	console.log("in send offering");
 	    	var form = document.getElementById("forms");
 	    	var offeringObject = {
 	    			"imageUrl" : form.imageUrl.value,
-	    			"name" : form.foodTitle.value,
+	    			"name" : form.name.value,
 	    			"startTime" : form.startTime.value,
 	    			"endTime" : form.endTime.value,
 	    			"price" : form.price.value
 	    	};
-			socket.send(offeringObject.stringify());
-			return false;
+	    	console.log(offeringObject);
+			socket.send(JSON.stringify(offeringObject));
+			return true;
 		}
     </script>
 </head>
-<body>
+<body onload="connectToServer()">
 
     <div id="nav-bar">
         <div id="nav-content">
@@ -183,15 +187,15 @@
 	    <div id="AddFood">
 	    	<h2 class="CenterText">Add Offering</h2>
 	    	<div>
-  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
+  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet" onsubmit="return sendOffering();">
  	 				<input type="text" name="name" placeholder="Cuisine Name" required>
   					<input type="text" name="location" placeholder="Location" required>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
   					<input type="text" name="price" placeholder="Price" required>
   					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>			
-  					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
-  					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
-  					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
+  					<input type="text" name="startTime" placeholder="Start Time" onfocus="this.type = 'time'" required>
+  					<input type="text" name="endTime" placeholder="End Time" onfocus="this.type = 'time'" required>
+  					<input id="submit" type="submit" value="Submit">
 				</form> 
 	  		 </div>
 	    </div>
