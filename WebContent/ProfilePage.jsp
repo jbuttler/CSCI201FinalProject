@@ -217,7 +217,7 @@
     <div id="AddFood">
     	<h1 id="CenterText"> Add Offering</h1>
     	<div id="CenterText">
-  		 		<form id="forms" name="eventForm" method="GET" action="OfferingsServlet">
+  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
  	 				<input type="text" name="name" placeholder="Cuisine Name" required>
   					<br>
   					<input type="text" name="location" placeholder="Location" required>
