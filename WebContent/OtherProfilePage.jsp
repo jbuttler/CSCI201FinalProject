@@ -25,16 +25,17 @@
 			vertical-align: middle;
 		}
 		#ProfileImage {
-			width: 25%;
+			width: 60%;
 			height: auto;
 			margin: 0;
-			float: left;
+			border-radius: 50%;
 		}
 		#ProfileBox {
-			float: left;
-			width: 38%;
-			margin-left: 2%;
-			text-align: left;
+			width: 43%;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			font-size: 1.2em;
 		}
 		#ProfileBox p {
 			margin-top: 0;
@@ -44,7 +45,7 @@
 			display: inline-block;
 			position: relative;
 			width: 33%;
-			margin-left: 2%;
+			margin-left: 8%;
 		}
 		.CenterText {
 			text-align: center;
@@ -139,6 +140,9 @@
             right: -9999px;
             margin: auto;
         }
+        #main {
+        	margin-top: 2%;
+        }
     </style>
     <script>
     	var socket;
@@ -170,33 +174,18 @@
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
         </div>
     </div>
-    <div id="title">${currentUser.getName()}</div>
     
     <div id="main">
-    	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
 	    <div id="ProfileBox">
-       		<h2>Rating: 5/5 Stars</h2>
-       		<h2>Contact: ${currentUser.getEmail()}</h2>
-            
+	    	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
+       		<h2>${currentUser.getName()}</h2>
+       		<h2>${currentUser.getEmail()}</h2>
 	    </div>
 	    
-	    <div id="AddFood">
-	    	<h2 class="CenterText">Add Offering</h2>
-	    	<div>
-  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
- 	 				<input type="text" name="name" placeholder="Cuisine Name" required>
-  					<input type="text" name="location" placeholder="Location" required>
-  					<input type="text" name="imageUrl" placeholder="Image URL" required>
-  					<input type="text" name="price" placeholder="Price" required>
-  					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>			
-  					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
-  					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
-  					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
-				</form> 
-	  		 </div>
-	    </div>
+	    <div class="clearfloat"></div>
 	    
 	    <div class="title">My Offerings</div>
+	    
 	    <div id="offerings">
 	        <div class="holder">
 	            <a href="">

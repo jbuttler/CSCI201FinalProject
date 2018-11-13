@@ -25,10 +25,9 @@
 			vertical-align: middle;
 		}
 		#ProfileImage {
-			width: 20%;
+			width: 60%;
 			height: auto;
 			border-radius: 50%;
-			margin: 0;
 			float: left;
 		}
 		#ProfileBox {

@@ -127,7 +127,7 @@
 			for(Offering offering : offerings) {
     	%>
     		<div class="holder">
-    			<a href="">
+    			<a href="OtherProfilePage.jsp?<%= offering.getChefEmail() %>">
     				<div class="photoholder">
     					<img class="photo" src=<%= offering.getImageUrl() %>>
     				</div>
@@ -149,6 +149,7 @@
     	<%
 			}
     	%>
+    </div> <!-- #offerings -->
     					
 </body>
 
