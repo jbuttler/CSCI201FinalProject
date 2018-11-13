@@ -215,7 +215,7 @@
       }
       
       function redirectPage(){
-    	  window.location.replace("HomePage.jsp");
+    	  window.location.replace("TrendingOfferingsServlet");
       }
 
       /**
