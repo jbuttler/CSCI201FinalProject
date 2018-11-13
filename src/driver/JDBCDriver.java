@@ -116,6 +116,7 @@ public class JDBCDriver {
 	
 	public static ArrayList<User> findUsers(String query) {
 		ArrayList<User> users = new ArrayList<User>();
+		
 		if(query.equals("")) {
 			users = getAllUsers();
 		}
