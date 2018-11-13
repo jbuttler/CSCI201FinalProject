@@ -17,7 +17,6 @@ CREATE TABLE Offerings (
   FOREIGN KEY fk1(chefEmail) REFERENCES Users(email),
   cuisineType varchar(20) NOT NULL,
   name varchar(80) NOT NULL,
-  description varchar(280) NOT NULL,
   price double NOT NULL,
   location varchar(120) NOT NULL,
   startTime bigint NOT NULL,

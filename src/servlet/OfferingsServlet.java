@@ -58,7 +58,10 @@ public class OfferingsServlet extends HttpServlet {
 				endMillis,
 				(String)request.getParameter("cuisineType"),
 				(String)request.getParameter("location"));
-		JDBCDriver.addOffering(offering, ((User)request.getSession().getAttribute("email")).getEmail());
+		User user = (User) request.getSession().getAttribute("currentUser");
+		String email = user.getEmail();
+		JDBCDriver.addOffering(offering, email);
+		response.sendRedirect("ProfilePage.jsp");
 	}
 
 }

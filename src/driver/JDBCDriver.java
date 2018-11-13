@@ -147,17 +147,16 @@ public class JDBCDriver {
 	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, description, price, location, startTime, endTime, valid, imgURL) "
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, ?)");
+			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, price, location, startTime, endTime, valid, imgURL) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, true, ?)");
 			ps.setString(1, email);
 			ps.setString(2, offering.getCuisineType());
 			ps.setString(3, offering.getName());
-			ps.setString(4, offering.getDescription());
-			ps.setDouble(5, offering.getPrice());
-			ps.setString(6, offering.getLocation());
-			ps.setLong(7, offering.getStartTime());
-			ps.setLong(8,  offering.getEndTime());
-			ps.setString(9, offering.getImageUrl());
+			ps.setDouble(4, offering.getPrice());
+			ps.setString(5, offering.getLocation());
+			ps.setLong(6, offering.getStartTime());
+			ps.setLong(7,  offering.getEndTime());
+			ps.setString(8, offering.getImageUrl());
 			ps.executeUpdate();
 			
 			ps = conn.prepareStatement("SELECT MAX(offeringID) FROM foodbook.offerings;");
