@@ -109,19 +109,11 @@
 <body>
     <div id="nav-bar">
         <div id="nav-content">
-<<<<<<< HEAD
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
             <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <p id="nav-search"><input type="text" placeholder="Search Users"></p>
             <a href="OfferingsPage.jsp"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>
             <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link">Profile</p></a>
-=======
-            <a href="HomePage.jsp"><p id="nav-home" class="nav-link">Home</p></a>
-            <a href="OfferingsPage.jsp"><p id="nav-offerings" class="nav-link current-page">Offerings</p></a>
-            <p id="nav-search"><input type="text" placeholder="Search Users"></p>
-            <a href="ProfilePage.jsp"><p id="nav-profile" class="nav-link">Profile</p></a>
-            <a href="SignIn.jsp"><p id="nav-signout" class="nav-link">Sign Out</p></a>
->>>>>>> 6c84b903bb7d07fe8300b84f47a8a71d3ca3c6c2
         </div>
     </div>
     <div id="title">Offerings</div>
