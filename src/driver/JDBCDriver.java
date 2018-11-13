@@ -114,20 +114,49 @@ public class JDBCDriver {
 		}
 	}
 	
+	public static ArrayList<User> findUsers(String query) {
+		ArrayList<User> users = new ArrayList<User>();
+		if(query.equals("")) {
+			users = getAllUsers();
+		}
+		else {
+			connect();
+			try {
+				ps = conn.prepareStatement("SELECT * FROM Users WHERE name LIKE ?");
+				ps.setString(1, "%" + query + "%");
+				rs = ps.executeQuery();
+
+				while(rs.next()) {
+					User user = new User(
+							rs.getString("name"), 
+							rs.getString("imgURL"), 
+							rs.getString("email"), 
+							rs.getString("bio"), 
+							rs.getString("contactinfo"));
+					users.add(user);
+				}	
+			} catch (SQLException sqle) {
+				System.out.println ("SQLException: " + sqle.getMessage());
+			} finally {
+				close();
+			}
+		}
+		return users;
+	}
+	
 	public static void addOffering(Offering offering, String email){
 		connect();
 		try {
-			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, description, price, location, startTime, endTime, valid, imgURL) "
-					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?, true, ?)");
+			ps = conn.prepareStatement("INSERT INTO Offerings(chefEmail, cuisineType, name, price, location, startTime, endTime, valid, imgURL) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, true, ?)");
 			ps.setString(1, email);
 			ps.setString(2, offering.getCuisineType());
 			ps.setString(3, offering.getName());
-			ps.setString(4, offering.getDescription());
-			ps.setDouble(5, offering.getPrice());
-			ps.setString(6, offering.getLocation());
-			ps.setLong(7, offering.getStartTime());
-			ps.setLong(8,  offering.getEndTime());
-			ps.setString(9, offering.getImageUrl());
+			ps.setDouble(4, offering.getPrice());
+			ps.setString(5, offering.getLocation());
+			ps.setLong(6, offering.getStartTime());
+			ps.setLong(7,  offering.getEndTime());
+			ps.setString(8, offering.getImageUrl());
 			ps.executeUpdate();
 			
 			ps = conn.prepareStatement("SELECT MAX(offeringID) FROM foodbook.offerings;");

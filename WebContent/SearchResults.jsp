@@ -65,11 +65,11 @@
 <body>
     <div id="nav-bar">
         <div id="nav-content">
-            <a href="HomePage.html"><p id="nav-home" class="nav-link">Home</p></a>
-            <a href="OfferingsPage.html"><p id="nav-offerings" class="nav-link">Offerings</p></a>
+            <a href="HomePage.jsp"><p id="nav-home" class="nav-link">Home</p></a>
+            <a href="OfferingsPage.jsp"><p id="nav-offerings" class="nav-link">Offerings</p></a>
             <p id="nav-search" class="current-page"><input type="text" placeholder="Search Users"></p>
-            <a href="ProfilePage.html"><p id="nav-profile" class="nav-link">Profile</p></a>
-            <a href="SignOutPage.html"><p id="nav-signout" class="nav-link">Sign Out</p></a>
+            <a href="ProfilePage.jsp"><p id="nav-profile" class="nav-link">Profile</p></a>
+            <a href="SignIn.jsp"><p id="nav-signout" class="nav-link">Sign Out</p></a>
         </div>
     </div>
 

@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="foodbook.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <style>
+<<<<<<< HEAD
 	    h2 {
 	    	font-weight: normal;
 	        margin-top: 0;
@@ -90,6 +91,108 @@
 	   	#offerings {
             width: 100%;
             height: auto;
+=======
+    #stars {
+    	display: inline-block;
+		width: 8%;
+		height: 8%;
+		vertical-align: middle;
+	}
+
+	#ProfileImage {
+		width: auto;
+		height: 300px;
+	}
+
+	#ProfileInfo {
+		display: inline-block;
+		top: 40px;
+		float: right;
+		width: 60%;
+		overflow-y: auto;
+	}
+	#ProfileBasic {
+		display: inline-block;
+		width: 40%;
+	}
+	#ProfileBox {
+		float: left;
+		left: 80px;
+		position: relative;
+		width: 50%;
+		height: 400px;
+		display: inline-block;
+	}
+	#AddFood {
+		display: inline-block;
+		position: relative;
+		width: 50%;
+		height: 400px;
+		left: 50px;
+	}
+	
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		
+	}
+	#CenterText {
+		text-align: center;
+	}
+	
+	#forms{
+		width: 550px;
+   		height: 450px;
+   		margin: auto;
+   		position: relative;
+	}
+	
+	input[type=submit] {
+    	padding:10px 50px; 
+    	font-size: 20px;
+    	background: #6B8E23;
+    	color: white;
+    	border: 0 none;
+    	cursor:pointer;
+    	-webkit-border-radius: 5px;
+    	border-radius: 5px; 
+	}
+	
+	input[type=text], input[type=number] {
+    	padding:5px; 
+    	border:2px solid #ccc; 
+    	-webkit-border-radius: 5px;
+    	border-radius: 5px;
+    	width: 80%;
+    	font-size: 20px;
+    	margin-top: 5px;
+	}
+	
+	input[type=time] {
+    	padding:5px; 
+    	border:2px solid #ccc; 
+    	-webkit-border-radius: 5px;
+    	border-radius: 5px;
+    	width: 80%;
+    	font-size: 20px;
+    	margin-top: 5px;
+	}
+
+	input[type=text]:focus {
+    	border-color:#333;
+	}
+	
+	#subtitle{
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	   #offerings {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+>>>>>>> 6c84b903bb7d07fe8300b84f47a8a71d3ca3c6c2
             margin-top: 8px;
             font-size: 0.65em;
         }
@@ -172,6 +275,7 @@
     </div>
     <div id="title">${currentUser.getName()}</div>
     
+<<<<<<< HEAD
     <div id="main">
     	<img id="ProfileImage" src="${currentUser.getImageUrl()}"/>
 	    <div id="ProfileBox">
@@ -184,13 +288,32 @@
 	    	<h2 class="CenterText">Add Offering</h2>
 	    	<div>
   		 		<form id="forms" name="eventForm" method="GET" action="OfferingsServlet">
+=======
+    <div id="AddFood">
+    	<h1 id="CenterText"> Add Offering</h1>
+    	<div id="CenterText">
+  		 		<form id="forms" name="eventForm" method="POST" action="OfferingsServlet">
+>>>>>>> 6c84b903bb7d07fe8300b84f47a8a71d3ca3c6c2
  	 				<input type="text" name="name" placeholder="Cuisine Name" required>
   					<input type="text" name="location" placeholder="Location" required>
   					<input type="text" name="imageUrl" placeholder="Image URL" required>
+<<<<<<< HEAD
   					<input type="text" name="price" placeholder="Price" required>
   					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>			
   					<input type="text" name="startTime" placeholder="Start Time" onclick="this.type = 'time'" required>
   					<input type="text" name="endTime" placeholder="End Time" onclick="this.type = 'time'" required>
+=======
+  					<br>
+  					<input type="number" min="0.01" max="2500" step="0.01" name="price" placeholder="Price" required>
+  					<br>
+  					<input type="text" name="cuisineType" placeholder="Cuisine Type" required>
+  					<br> 					
+  					<input type="text" name="startTime" placeholder="Start Time" onfocus="this.type = 'time'" required>
+  					<br>
+  					<input type="text" name="endTime" placeholder="End Time" onfocus="this.type = 'time'" required>
+  					<br>
+  					<br>
+>>>>>>> 6c84b903bb7d07fe8300b84f47a8a71d3ca3c6c2
   					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
 				</form> 
 	  		 </div>
