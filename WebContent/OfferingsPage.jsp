@@ -14,7 +14,60 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="foodbook.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <style></style>
+    <style>
+    	#offerings {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 8px;
+        }
+        #offerings .holder {
+            height: 250px;
+            width: 250px;
+            border: 1px solid black;
+            text-align: center;
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 25px;
+        }
+        #offerings .holder a {
+            text-decoration: none;
+            color: black;
+        }
+        #offerings .holder .meal-title {
+            width: 240px;
+            height: 22px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        #offerings .holder .meal-price {
+            width: 240px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        #offerings .holder .meal-time {
+            width: 240px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        #offerings .photoholder {
+            height: 180px;
+            width: 250px;
+            overflow: hidden;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2px;
+            position: relative;
+        }
+        #offerings .photoholder .photo {
+            height: 180px;
+            width: auto;
+            position: absolute;
+            left: -9999px;
+            right: -9999px;
+            margin: auto;
+        }
+    </style>
   	<script>
 		var socket;
 		function connectToServer() {
@@ -56,11 +109,11 @@
 <body>
     <div id="nav-bar">
         <div id="nav-content">
-            <a href="HomePage.html"><p id="nav-home" class="nav-link">Home</p></a>
-            <a href="OfferingsPage.html"><p id="nav-offerings" class="nav-link current-page">Offerings</p></a>
+            <a href="SignIn.jsp"><p id="nav-home" class="nav-link">Foodbook</p></a>
+            <a href="HomePage.jsp"><p id="nav-offerings" class="nav-link">Home</p></a>
             <p id="nav-search"><input type="text" placeholder="Search Users"></p>
-            <a href="ProfilePage.html"><p id="nav-profile" class="nav-link">Profile</p></a>
-            <a href="SignOutPage.html"><p id="nav-signout" class="nav-link">Sign Out</p></a>
+            <a href="OfferingsPage.jsp"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>
+            <a href="ProfilePage.jsp"><p id="nav-signout" class="nav-link">Profile</p></a>
         </div>
     </div>
     <div id="title">Offerings</div>
