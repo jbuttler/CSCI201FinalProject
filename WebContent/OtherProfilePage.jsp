@@ -211,8 +211,8 @@
     				<div class="photoholder">
     					<img class="photo" src=<%= offering.getImageUrl() %>>
     				</div>
-    				<div class="meal-title"><%= offering.getName() %> - <%= offering.getLocation() %></div>
-    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>
     				<div class="meal-time">
     					<%
 	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
