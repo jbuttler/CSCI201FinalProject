@@ -101,7 +101,7 @@
 	    	font-size: 20px;
 	    	margin-top: 5px;
 		}
-		#AddFood input[type=time] {
+		#AddFood input[type=datetime-local] {
 	    	padding:5px; 
 	    	border:2px solid #ccc; 
 	    	-webkit-border-radius: 5px;
@@ -255,8 +255,8 @@
 						    <option value="German">
 						    <option value="Other">						    							    					    						    						    					    						    						    						    						    
 						</datalist>		
-  					<input type="text" name="startTime" placeholder="Start Time" onfocus="this.type = 'time'" required>
-  					<input type="text" name="endTime" placeholder="End Time" onfocus="this.type = 'time'" required>
+  					<input type="text" name="startTime" placeholder="Start Time" onfocus="this.type = 'datetime-local'" required>
+  					<input type="text" name="endTime" placeholder="End Time" onfocus="this.type = 'datetime-local'" required>
   					<input id="submit" type="submit" onsubmit="sendOffering();" value="Submit">
 				</form> 
 	  		 </div>
@@ -284,7 +284,7 @@
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
     				<div class="meal-time">
     					<%
-	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
+	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/dd/yy");
 	    					Date startDate = new Date(offering.getStartTime());
 	    					String startTimeString = dateFormatter.format(startDate);
 	    					
@@ -292,6 +292,7 @@
 	    					String endTimeString = dateFormatter.format(endDate);
     					%>
     					<%= startTimeString.substring(0, 8) %> - <%= endTimeString.substring(0, 8) %>
+    					<%= startTimeString.substring(8) %>
     				</div>
     			</a>
     		</div>

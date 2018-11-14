@@ -35,19 +35,24 @@ public class OfferingsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String startTime = (String) request.getParameter("startTime");
 		String endTime = (String) request.getParameter("endTime");
-		
+				
 		Calendar cal = Calendar.getInstance();
-		int year  = cal.get(Calendar.YEAR);
-		int month = cal.get(Calendar.MONTH);
-		int date  = cal.get(Calendar.DATE);
 		
-		String[] startParsed = startTime.split(":");
-		String[] endParsed = endTime.split(":");
+		String[] startDateTimeSplit = startTime.split("T");
+		String[] endDateTimeSplit = endTime.split("T");
 		
-		cal.set(year, month, date, Integer.parseInt(startParsed[0]), Integer.parseInt(startParsed[1]));
+		String[] startDateString = startDateTimeSplit[0].split("-");
+		int year  = Integer.parseInt(startDateString[0]);
+		int month = Integer.parseInt(startDateString[1]);
+		int date  = Integer.parseInt(startDateString[2]);
+		
+		String[] startParsed = startDateTimeSplit[1].split(":");
+		String[] endParsed = endDateTimeSplit[1].split(":");
+		
+		cal.set(year, month - 1, date, Integer.parseInt(startParsed[0]), Integer.parseInt(startParsed[1]));
 		long startMillis = cal.getTimeInMillis();
 		
-		cal.set(year, month, date, Integer.parseInt(endParsed[0]), Integer.parseInt(endParsed[1]));
+		cal.set(year, month - 1, date, Integer.parseInt(endParsed[0]), Integer.parseInt(endParsed[1]));
 		long endMillis = cal.getTimeInMillis();
 		
 
