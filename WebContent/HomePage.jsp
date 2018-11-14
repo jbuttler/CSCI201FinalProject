@@ -15,15 +15,31 @@
         #trending .holder {
             height: 250px;
             width: 250px;
-            border: 1px solid black;
+            border: 0px solid grey;
             text-align: center;
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
+            background-color: #FF6666;
         }
         #trending .holder a {
             text-decoration: none;
-            color: black;
+            color: white;
+        }
+        
+        #trending .holder:hover {
+            height: 250px;
+            width: 250px;
+            border: 0px solid grey;
+            text-align: center;
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            background-color: gold;
+        }
+        #trending .holder a:hover {
+            text-decoration: none;
+            color: #FF6666;
         }
         #trending .holder .name {
             width: 240px;

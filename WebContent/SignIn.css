@@ -46,6 +46,7 @@ h1 {
   
   text-align: center;
   
+  
 }
 
 .profileImage {
@@ -206,7 +207,7 @@ img{
 .niceButton {
   width: 130px;
   height: 40px;
-  background: linear-gradient(to bottom, #FF6666 0%, #FF6666 100%); /* W3C */
+  background: linear-gradient(to right, #FF9999 0%, #FF6666 100%); /* W3C */
   border: none;
   border-radius: 5px;
   position: relative;

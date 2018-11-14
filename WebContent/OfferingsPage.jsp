@@ -24,15 +24,31 @@
         #offerings .holder {
             height: 250px;
             width: 250px;
-            border: 1px solid black;
+            border: 0px solid grey;
             text-align: center;
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
+            background-color: #FF6666;
+        }
+        
+        #offerings .holder:hover {
+            height: 250px;
+            width: 250px;
+            border: 0px solid grey;
+            text-align: center;
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            background-color: gold;
+        }
+        #offerings .holder a:hover {
+            text-decoration: none;
+            color: #FF6666;
         }
         #offerings .holder a {
             text-decoration: none;
-            color: black;
+            color: white;
         }
         #offerings .holder .meal-title {
             width: 240px;

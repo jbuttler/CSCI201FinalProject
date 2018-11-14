@@ -14,7 +14,7 @@ body {
     padding-top: 5px;
 }
 #nav-bar .nav-link:hover {
-    color: #FFFF00;
+    color: gold;
 }
 #nav-content {
     width: 80%;

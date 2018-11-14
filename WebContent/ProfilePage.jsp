@@ -26,6 +26,7 @@
 		    margin-left: 0;
 		    margin-top: 10px;
 		    font-size: 1.8em;
+		    float:left;
 		}
 	    #stars {
 	    	display: inline-block;
@@ -120,15 +121,31 @@
         #offerings .holder {
             height: 250px;
             width: 250px;
-            border: 1px solid black;
+            border: 0px solid grey;
             text-align: center;
             float: left;
-            margin-right: 20px;
-            margin-bottom: 20px;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            background: #FF6666;
         }
         #offerings .holder a {
             text-decoration: none;
-            color: black;
+            color: white;
+        }
+        
+        #offerings .holder:hover {
+            height: 250px;
+            width: 250px;
+            border: 0px solid grey;
+            text-align: center;
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            background-color: gold;
+        }
+        #offerings .holder a:hover {
+            text-decoration: none;
+            color: #FF6666;
         }
         #offerings .holder .meal-title {
             width: 240px;
@@ -275,7 +292,7 @@
     		<div class="holder">
     			<a href="#">
     				<div class="photoholder">
-    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
     				<div class="meal-title"><%= offering.getName() %></div>
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
