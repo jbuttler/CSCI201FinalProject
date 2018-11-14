@@ -6,7 +6,7 @@ CREATE TABLE Users (
   userID int AUTO_INCREMENT NOT NULL UNIQUE,
   email varchar(50) PRIMARY KEY NOT NULL UNIQUE,
   name varchar(40) NOT NULL,
-  imgURL varchar(200),
+  imgURL varchar(500),
   bio varchar(140),
   contactinfo varchar(50) NOT NULL
 );
