@@ -7,6 +7,12 @@ import driver.JDBCDriver;
 
 public class DeleteInvalidOfferingsThread extends Thread {
 	public void run() {
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 		while (true) {
 			List<Offering> currentOfferings = JDBCDriver.getAllOfferings();
 			

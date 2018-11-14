@@ -1,6 +1,9 @@
 package driver;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import datatypes.Offering;
 import datatypes.User;
@@ -9,9 +12,35 @@ public class JDBCDriver {
 	private static Connection conn = null;
 	private static ResultSet rs = null;
 	private static PreparedStatement ps = null;
+	private static Lock lock = new ReentrantLock();
 	
 	
 	private static boolean connect(){
+		
+		
+		try {
+			boolean hasLock = false;
+			
+			while(!hasLock) {
+				synchronized(lock) {
+				hasLock = lock.tryLock();
+				}
+				
+				if(!hasLock) {
+					//System.out.println("Failed to obtain lock!");
+					//System.out.println("In " + Thread.currentThread().getStackTrace()[2]);
+					Thread.sleep(100);
+				} else {
+					//System.out.println("Locked successfully!");
+					//System.out.println("In " + Thread.currentThread().getStackTrace()[2]);
+				}
+			}
+			
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			System.out.println("Thread was interupted!");
+			e1.printStackTrace();
+		}
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost/foodbook?user=root&password=root&useSSL=false&allowPublicKeyRetrieval=true");
@@ -43,6 +72,11 @@ public class JDBCDriver {
 		}catch(SQLException sqle){
 			System.out.println("connection close error");
 			sqle.printStackTrace();
+		} finally {
+			synchronized(lock) {
+				lock.unlock();
+				//System.out.println("Unlocked successfully!");
+			}
 		}
 	}
 	
@@ -59,8 +93,6 @@ public class JDBCDriver {
 			String bio = rs.getString("bio");
 			String contactinfo = rs.getString("contactinfo");
 			retval = new User(name, imageURL, email, bio, contactinfo);
-			close();
-			retval.setOfferings(getOfferingsByUser(email));
 		} catch (SQLException e) {
 			System.out.println("SQLException in function \"getUser\"");
 			e.printStackTrace();
@@ -106,7 +138,6 @@ public class JDBCDriver {
 			ps.setString(4, user.getBio());
 			ps.setString(5, user.getContactInfo());
 			ps.executeUpdate();
-	
 		} catch (SQLException sqle) {
 			System.out.println ("SQLException: " + sqle.getMessage());
 		} finally {
@@ -205,7 +236,6 @@ public class JDBCDriver {
 		try {
 			ps = conn.prepareStatement("SELECT * FROM Offerings WHERE valid=true");
 			rs = ps.executeQuery();	
-			
 			while(rs.next()) {
 				Offering offering = new Offering(rs.getString("name"), 
 						rs.getString("imgURL"), rs.getDouble("price"), rs.getLong("startTime"), rs.getLong("endTime"), 

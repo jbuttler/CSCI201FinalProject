@@ -25,7 +25,8 @@
 		    width: 100%;
 		    margin-left: 0;
 		    margin-top: 10px;
-		    font-size: 1.8em;
+		    margin-bottom: 5px;
+		    font-size: 1.7em;
 		    float:left;
 		}
 	    #stars {
@@ -35,9 +36,11 @@
 			vertical-align: middle;
 		}
 		#ProfileImage {
-			width: 60%;
+			width: 50%;
 			height: auto;
 			border-radius: 50%;
+			margin-bottom: 10px;
+			margin-top: 20px;
 		}
 		#ProfileBox {
 			float: left;
@@ -261,9 +264,6 @@
 				</form> 
 	  		 </div>
 	    </div>
-	    
-	    <br>
-	    <br>
 	    <br>
 	    <div class="title">My Offerings</div>
 	    
@@ -301,9 +301,6 @@
     	%>
     	</div> <!-- #offerings -->
     </div>
-    
-    
-    
 
 </body>
 </html>
