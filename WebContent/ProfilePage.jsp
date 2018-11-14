@@ -126,27 +126,13 @@
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
-            background: #FF6666;
+            background: #FF9999;
         }
         #offerings .holder a {
             text-decoration: none;
-            color: white;
+            color: black;
         }
         
-        #offerings .holder:hover {
-            height: 250px;
-            width: 250px;
-            border: 0px solid grey;
-            text-align: center;
-            float: left;
-            margin-right: 25px;
-            margin-bottom: 25px;
-            background-color: gold;
-        }
-        #offerings .holder a:hover {
-            text-decoration: none;
-            color: #FF6666;
-        }
         #offerings .holder .meal-title {
             width: 240px;
             height: 22px;

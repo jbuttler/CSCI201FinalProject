@@ -107,16 +107,16 @@
         #offerings .holder {
             height: 250px;
             width: 250px;
-            border: 1px solid grey;
+            border: 0px solid grey;
             text-align: center;
             float: left;
             margin-right: 20px;
             margin-bottom: 20px;
-            background-color: #FF6666;
+            background-color: #FF9999;
         }
         #offerings .holder a {
             text-decoration: none;
-            color: white;
+            color: black;
         }
         #offerings .holder .meal-title {
             width: 240px;

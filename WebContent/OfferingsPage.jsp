@@ -29,7 +29,7 @@
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
-            background-color: #FF6666;
+            background-color: #FF9999;
         }
         
         #offerings .holder:hover {
@@ -40,15 +40,15 @@
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
-            background-color: gold;
+            background-color: #FFFF66;
         }
         #offerings .holder a:hover {
             text-decoration: none;
-            color: #FF6666;
+            color: black;
         }
         #offerings .holder a {
             text-decoration: none;
-            color: white;
+            color: black;
         }
         #offerings .holder .meal-title {
             width: 240px;
@@ -77,7 +77,7 @@
         }
         #offerings .photoholder .photo {
             height: 180px;
-            width: auto;
+            width: 100%;
             position: absolute;
             left: -9999px;
             right: -9999px;

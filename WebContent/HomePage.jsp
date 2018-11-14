@@ -31,11 +31,11 @@
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
-            background-color: #FF6666;
+            background-color: #FF9999;
         }
         #trending .holder a {
             text-decoration: none;
-            color: white;
+            color: black;
         }
         
         #trending .holder:hover {
@@ -46,11 +46,11 @@
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
-            background-color: gold;
+            background-color: #FFFF66;
         }
         #trending .holder a:hover {
             text-decoration: none;
-            color: #FF6666;
+            color: black;
         }
         #trending .holder .name {
             width: 240px;

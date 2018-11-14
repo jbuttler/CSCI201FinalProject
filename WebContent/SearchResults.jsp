@@ -27,15 +27,26 @@
         #users .holder {
             height: 250px;
             width: 250px;
-            border: 1px solid black;
+            border: 0px solid black;
             text-align: center;
             float: left;
             margin-right: 25px;
             margin-bottom: 25px;
+            background-color: white;
         }
         #users .holder a {
             text-decoration: none;
-            color: black;
+            color: white;
+        }
+        #users .holder:hover {
+            height: 250px;
+            width: 250px;
+            border: 0px solid black;
+            text-align: center;
+            float: left;
+            margin-right: 25px;
+            margin-bottom: 25px;
+            background-color: white;
         }
         #users .holder .name {
             width: 240px;
@@ -64,12 +75,18 @@
         }
         #users .photoholder .photo {
             height: 180px;
-            width: auto;
+            width: auto; 
+            border-radius: 50%;
             position: absolute;
             left: -9999px;
             right: -9999px;
             margin: auto;
         }
+        #users .info {
+        	border: 1px solid grey;
+        	background-color: #FF6666;
+        }
+        
     </style>
 </head>
 
@@ -100,8 +117,11 @@
                 <div class="photoholder">
                     <img class="photo" src="<%= user.getImageUrl() %>" alt="User Picture">
                 </div>
-                <div class="name"><%= user.getName() %></div>
-                <div class="location"><%= user.getEmail() %></div>
+                <br>
+                <div class="info">
+                	<div class="name"><%= user.getName() %></div>
+                	<div class="location"><%= user.getEmail() %></div>
+                </div>
             </a>
         </div>
 	<%
