@@ -280,7 +280,7 @@
     				<div class="photoholder">
     					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
-    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-title"><%= offering.getName() %> - <%= offering.getLocation() %></div>
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
     				<div class="meal-time">
     					<%
