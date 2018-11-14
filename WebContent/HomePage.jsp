@@ -1,3 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashSet" %>
+<%@ page import="datatypes.Offering" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -163,71 +174,103 @@
 
     <div id="title">Home</div>
     
+    
     <div id="trending">
         <h2>Trending</h2>
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-                </div>
-                <div class="meal-title">Chicken Katsu w/ Rice</div>
-                <div class="meal-price">$34.69</div>
-                <div class="meal-time">10:30am - 11:30pm</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-                </div>
-                <div class="meal-title">Chicken Katsu w/ Rice</div>
-                <div class="meal-price">$34.69</div>
-                <div class="meal-time">10:30am - 11:30pm</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-                </div>
-                <div class="meal-title">Chicken Katsu w/ Rice</div>
-                <div class="meal-price">$34.69</div>
-                <div class="meal-time">10:30am - 11:30pm</div>
-            </a>
-        </div>
-
-        <div class="holder">
-            <a href="">
-                <div class="photoholder">
-                    <img class="photo" src="https://assets.epicurious.com/photos/593ee2bba55f291646ff79dc/master/pass/kids-chicken-katsu.jpg" alt="Meal Picture">
-                </div>
-                <div class="meal-title">Chicken Katsu w/ Rice</div>
-                <div class="meal-price">$34.69</div>
-                <div class="meal-time">10:30am - 11:30pm</div>
-            </a>
-        </div>
-
+    	<%
+	    	List<Offering> offerings = (ArrayList<Offering>)request.getAttribute("trendingOfferings");
+    		if(offerings == null) {
+    			offerings = new ArrayList<Offering>();
+    		}
+			for(Offering offering : offerings) {
+    	%>
+    		<div class="holder">
+    			<a href="OtherProfileServlet?email=<%= offering.getChefEmail() %>">
+    				<div class="photoholder">
+    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    				</div>
+    				<div class="meal-title"><%= offering.getName() %> - <%= offering.getLocation() %></div>
+    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-time">
+    					<%
+	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
+	    					Date startDate = new Date(offering.getStartTime());
+	    					String startTimeString = dateFormatter.format(startDate);
+	    					
+	    					Date endDate = new Date(offering.getEndTime());
+	    					String endTimeString = dateFormatter.format(endDate);
+    					%>
+    					<%= startTimeString.substring(0, 8) %> - <%= endTimeString.substring(0, 8) %>
+    				</div>
+    			</a>
+    		</div>
+    	<%
+			}
+    	%>
         <div class="clearfloat"></div>
         
     </div>
 
     <h2>Activity Map</h2>
-    <div id="activity-map">
-        <img id="map-base" src="img/map_base.JPG" alt="Activity Map">
-        <img id="parkside" src="img/marker.png" alt="">
-        <img id="south" src="img/marker.png" alt="">
-        <img id="newnorth" src="img/marker.png" alt="">
-        <img id="birnkrant" src="img/marker.png" alt="">
-        <img id="west" src="img/marker.png" alt="">
-        <img id="mccarthy" src="img/marker.png" alt="">
-        <img id="cale" src="img/marker.png" alt="">
-        <img id="cowlings" src="img/marker.png" alt="">
-        <img id="priam" src="img/marker.png" alt="">
-        <img id="cargar" src="img/marker.png" alt="">
-        <img id="century" src="img/marker.png" alt="">
-    </div>
+    <% Set<String> locations = (HashSet<String>)request.getAttribute("locations"); %>
+	    <div id="activity-map">
+	        <img id="map-base" src="img/map_base.JPG" alt="Activity Map">
+	        <img id="parkside" 
+	        <% if(locations.contains("Parkside")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="south" 
+	        <% if(locations.contains("South")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="newnorth" 
+	        <% if(locations.contains("New North")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="birnkrant" 
+	        <% if(locations.contains("Birnkrant")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="west" 
+	        <% if(locations.contains("West")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="mccarthy" 
+	        <% if(locations.contains("McCarthy")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="cale" 
+	        <% if(locations.contains("Cale & Irani")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="cowlings" 
+	        <% if(locations.contains("Cowlings & Ilium")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="priam" 
+	        <% if(locations.contains("Priam")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="cargar" 
+	        <% if(locations.contains("Cargar")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	        <img id="century" 
+	        <% if(locations.contains("Century")) { %>
+	        	style="visibility:visible"
+	        <% } %>
+	        src="img/marker.png" alt="">
+	    </div>
 
 </body>
 
