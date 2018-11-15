@@ -145,7 +145,7 @@
         }
         #offerings .photoholder .photo {
             height: 180px;
-            width: 100%;
+            width: auto;
             position: absolute;
             left: -9999px;
             right: -9999px;
