@@ -104,11 +104,8 @@
   	
 		var socket;
 		function connectToServer() {
-			var url = (window.location.protocol === "https:" ? "wss:" : "ws:") + "//" + window.location.host + "/ws";
+			var url = "ws://localhost:8080/CSCI201_Final_Project/ws";
 			socket = new WebSocket(url);
-			socket.onopen = function(event) {
-				console.log("Connected!");
-			}
 			socket.onopen = function(event) {
 				console.log("Connected!");
 			}
