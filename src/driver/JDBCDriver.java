@@ -43,7 +43,7 @@ public class JDBCDriver {
 		}
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-01.cleardb.net/heroku_5c420d8518d4e01?user=bd5d86fdfea7e8&password=69f901cb&useSSL=false&allowPublicKeyRetrieval=true");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/foodbook?user=root&password=root&useSSL=false&allowPublicKeyRetrieval=true");
 			return true;
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

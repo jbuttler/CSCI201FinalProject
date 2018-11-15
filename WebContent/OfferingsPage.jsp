@@ -84,9 +84,13 @@
     </style>
   	<script>
 	  	function twentyFourToTwelve(timeString) {
-			var parts = timeString.split(':');
+	  		var newTimeString = timeString.split('T')[1];
+			var parts = newTimeString.split(':');
 			var hour = parseInt(parts[0]);
 			var minute = parseInt(parts[1]);
+			if(parseInt(minute,10) < 10) {
+				minute = '0' + minute;
+			}
 			var amOrPm;
 			if(hour >= 13) {
 				hour -= 12;
