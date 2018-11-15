@@ -77,7 +77,7 @@
         }
         #offerings .photoholder .photo {
             height: 180px;
-            width: 100%;
+            width: auto;
             position: absolute;
             left: -9999px;
             right: -9999px;
@@ -176,7 +176,7 @@
     		<div class="holder">
     			<a href="OtherProfileServlet?email=<%= offering.getChefEmail() %>">
     				<div class="photoholder">
-    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
     				<div class="meal-title"><%= offering.getName() %></div>
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>

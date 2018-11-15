@@ -215,7 +215,7 @@
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>
     				<div class="meal-time">
     					<%
-	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/DD/yy");
+	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/dd/yy");
 	    					Date startDate = new Date(offering.getStartTime());
 	    					String startTimeString = dateFormatter.format(startDate);
 	    					
@@ -223,6 +223,7 @@
 	    					String endTimeString = dateFormatter.format(endDate);
     					%>
     					<%= startTimeString.substring(0, 8) %> - <%= endTimeString.substring(0, 8) %>
+    					<%= startTimeString.substring(8) %>
     				</div>
     			</a>
     		</div>

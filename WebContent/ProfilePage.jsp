@@ -109,7 +109,7 @@
 	    	border:2px solid #ccc; 
 	    	-webkit-border-radius: 5px;
 	    	border-radius: 5px;
-	    	font-size: 20px;
+	    	font-size: 15px;
 	    	margin-top: 5px;
 		}
 		input[type=text]:focus {
@@ -280,8 +280,8 @@
     				<div class="photoholder">
     					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
-    				<div class="meal-title"><%= offering.getName() %> - <%= offering.getLocation() %></div>
-    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>
     				<div class="meal-time">
     					<%
 	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/dd/yy");
