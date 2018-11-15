@@ -109,7 +109,7 @@
 	    	border:2px solid #ccc; 
 	    	-webkit-border-radius: 5px;
 	    	border-radius: 5px;
-	    	font-size: 20px;
+	    	font-size: 15px;
 	    	margin-top: 5px;
 		}
 		input[type=text]:focus {
@@ -123,7 +123,7 @@
         }
         #offerings .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -154,7 +154,7 @@
         }
         #offerings .photoholder {
             height: 180px;
-            width: 250px;
+            width: 100%;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
@@ -204,9 +204,9 @@
         <div id="nav-content">
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link logo">Foodbook</p></a>
             <a href="TrendingOfferingsServlet"><p id="nav-offerings" class="nav-link">Home</p></a>
-            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
             <a href="ProfileServlet"><p id="nav-signout" class="nav-link current-page">Profile</p></a>
+            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
         </div>
     </div>
     
@@ -280,8 +280,8 @@
     				<div class="photoholder">
     					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
-    				<div class="meal-title"><%= offering.getName() %> - <%= offering.getLocation() %></div>
-    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %></div>
+    				<div class="meal-title"><%= offering.getName() %></div>
+    				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>
     				<div class="meal-time">
     					<%
 	    					DateFormat dateFormatter = new SimpleDateFormat("hh:mm a MM/dd/yy");

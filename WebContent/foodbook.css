@@ -5,13 +5,19 @@ body {
 #nav-bar {
     height: 50px;
     background-color: #FF6666;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
 #nav-bar p {
     float: left;
     text-align: center;
     margin: 0;
-    height: 90%;
-    padding-top: 5px;
+    height: 80%;
+    border-radius: 15px;
+    margin-top: 5px;
+    margin-left: 0.80%;
+    margin-right: 0.80%;
 }
 #nav-bar .nav-link:hover {
     color: gold;
@@ -28,20 +34,23 @@ body {
     color: white;
 }
 .nav-link {
-    width: 18%;
+    width: 16%;
 }
 #nav-search {
     width: 28%;
 }
 #nav-search input {
     border: 0;
+    border-radius: 15px;
     height: 70%;
     width: 70%;
     font-family: 'Nunito', Arial, sans-serif;
     font-size: 1.3em;
     padding-left: 4px;
     padding-right: 4px;
-    margin-top: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 3px;
 }
 #nav-search input::placeholder {
     text-align: center;

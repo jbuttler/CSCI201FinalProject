@@ -23,7 +23,7 @@
         }
         #offerings .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -33,8 +33,6 @@
         }
         
         #offerings .holder:hover {
-            height: 250px;
-            width: 250px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -68,7 +66,7 @@
         }
         #offerings .photoholder {
             height: 180px;
-            width: 250px;
+            width: 240px;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
@@ -77,7 +75,7 @@
         }
         #offerings .photoholder .photo {
             height: 180px;
-            width: 100%;
+            width: auto;
             position: absolute;
             left: -9999px;
             right: -9999px;
@@ -158,9 +156,9 @@
         <div id="nav-content">
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link logo">Foodbook</p></a>
             <a href="TrendingOfferingsServlet"><p id="nav-offerings" class="nav-link">Home</p></a>
-            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link current-page">Offerings</p></a>
             <a href="ProfileServlet"><p id="nav-signout" class="nav-link">Profile</p></a>
+            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
         </div>
     </div>
     <div id="title">Offerings</div>
@@ -176,7 +174,7 @@
     		<div class="holder">
     			<a href="OtherProfileServlet?email=<%= offering.getChefEmail() %>">
     				<div class="photoholder">
-    					<img class="photo" src=<%= offering.getImageUrl() %>>
+    					<img class="photo" src=<%= offering.getImageUrl() %> alt="Image URL not found">
     				</div>
     				<div class="meal-title"><%= offering.getName() %></div>
     				<div class="meal-price">$<%= String.format("%.2f", offering.getPrice()) %> - <%= offering.getLocation() %></div>

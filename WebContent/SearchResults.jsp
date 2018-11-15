@@ -26,7 +26,7 @@
         }
         #users .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid black;
             text-align: center;
             float: left;
@@ -37,16 +37,6 @@
         #users .holder a {
             text-decoration: none;
             color: white;
-        }
-        #users .holder:hover {
-            height: 250px;
-            width: 250px;
-            border: 0px solid black;
-            text-align: center;
-            float: left;
-            margin-right: 25px;
-            margin-bottom: 25px;
-            background-color: white;
         }
         #users .holder .name {
             width: 240px;
@@ -66,7 +56,7 @@
         }
         #users .photoholder {
             height: 180px;
-            width: 250px;
+            width: 240px;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
@@ -95,9 +85,9 @@
         <div id="nav-content">
             <a href="SignIn.jsp"><p id="nav-home" class="nav-link logo">Foodbook</p></a>
             <a href="TrendingOfferingsServlet"><p id="nav-offerings" class="nav-link">Home</p></a>
-            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
             <a href="OfferingsServlet"><p id="nav-profile" class="nav-link">Offerings</p></a>
             <a href="ProfileServlet"><p id="nav-signout" class="nav-link">Profile</p></a>
+            <form action="SearchServlet" method="GET"><p id="nav-search"><input name="query" type="text" placeholder="Search Users"></p></form>
         </div>
     </div>
 
