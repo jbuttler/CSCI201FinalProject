@@ -106,7 +106,7 @@
         }
         #offerings .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -136,7 +136,7 @@
         }
         #offerings .photoholder {
             height: 180px;
-            width: 250px;
+            width: 240px;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;
@@ -145,7 +145,7 @@
         }
         #offerings .photoholder .photo {
             height: 180px;
-            width: auto;
+            width: 100%;
             position: absolute;
             left: -9999px;
             right: -9999px;

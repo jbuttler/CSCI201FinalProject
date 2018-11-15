@@ -26,7 +26,7 @@
         }
         #users .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid black;
             text-align: center;
             float: left;
@@ -37,16 +37,6 @@
         #users .holder a {
             text-decoration: none;
             color: white;
-        }
-        #users .holder:hover {
-            height: 250px;
-            width: 250px;
-            border: 0px solid black;
-            text-align: center;
-            float: left;
-            margin-right: 25px;
-            margin-bottom: 25px;
-            background-color: white;
         }
         #users .holder .name {
             width: 240px;
@@ -66,7 +56,7 @@
         }
         #users .photoholder {
             height: 180px;
-            width: 250px;
+            width: 240px;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;

@@ -23,7 +23,7 @@
         }
         #offerings .holder {
             height: 250px;
-            width: 250px;
+            width: 240px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -33,8 +33,6 @@
         }
         
         #offerings .holder:hover {
-            height: 250px;
-            width: 250px;
             border: 0px solid grey;
             text-align: center;
             float: left;
@@ -68,7 +66,7 @@
         }
         #offerings .photoholder {
             height: 180px;
-            width: 250px;
+            width: 240px;
             overflow: hidden;
             margin-left: auto;
             margin-right: auto;

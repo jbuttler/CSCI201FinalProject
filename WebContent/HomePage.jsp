@@ -79,7 +79,7 @@
         }
         #trending .photoholder .photo {
             height: 180px;
-            width: auto;
+            width: 100%;
             position: absolute;
             left: -9999px;
             right: -9999px;
