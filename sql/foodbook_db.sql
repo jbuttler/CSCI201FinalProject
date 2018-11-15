@@ -6,7 +6,7 @@ CREATE TABLE Users (
   userID int AUTO_INCREMENT NOT NULL UNIQUE,
   email varchar(50) PRIMARY KEY NOT NULL UNIQUE,
   name varchar(40) NOT NULL,
-  imgURL varchar(500),
+  imgURL varchar(1000),
   bio varchar(140),
   contactinfo varchar(50) NOT NULL
 );
@@ -22,5 +22,5 @@ CREATE TABLE Offerings (
   startTime bigint NOT NULL,
   endTime bigint NOT NULL,
   valid bool NOT NULL,
-  imgURL varchar(200)
+  imgURL varchar(1000)
 );
